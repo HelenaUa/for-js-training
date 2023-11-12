@@ -1,0 +1,7 @@
+{
+    "name": "for-js-training",
+    "version": "1.0.0",
+    "scripts": {
+      "start": "start index.html"
+    }
+}
