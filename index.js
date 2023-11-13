@@ -138,16 +138,55 @@
   // };
   // console.log(langs);
 
-  const numbers = [2, 5, 94, 6, 1, 57];
-  let min = numbers[0];
-  for (const number of numbers) {
-    if(number < min) {
-      min = number
-    }
-  };
-  console.log(min);
+//   const numbers = [2, 5, 94, 6, 1, 57];
+//   let min = numbers[0];
+//   for (const number of numbers) {
+//     if(number < min) {
+//       min = number
+//     }
+//   };
+//   console.log(min);
 
 // Модуль 2 (Урок 2)
+
+// function add() {
+//     let sum = 0;
+//     console.log(arguments); //виведе всі аргументи, скільки б їх не було
+//     for (let i = 0; i < arguments.length; i +=1) {
+//         sum += arguments[i];
+//     };
+//     console.log(sum);
+// };
+// add(1, 2, 3, 4);
+// add(1, 2, 3, 4, 5);
+// add(1, 2, 3, 4, 5, 6);
+
+// function add() {
+//     let sum = 0;
+//     const arr = [...arguments];
+//     console.log(arguments); //виведе всі аргументи, скільки б їх не було
+//     console.log(arr);
+//     for (const value of arguments) {
+//         sum += value;
+//     };
+//     console.log(sum);
+// };
+// add(1, 2, 3, 4);
+// add(1, 2, 3, 4, 5);
+// add(1, 2, 3, 4, 5, 6);
+
+function calsBMI(weight, height) {
+    weight = Number(weight.replace(',', '.'));
+    height = Number(height.replace(',', '.'));
+
+    // return Number((weight/Math.pow(height, 2)).toFixed(1));
+    return Number((weight/height**2).toFixed(1));
+}
+const bmi = calsBMI('88,3', '1.75');
+console.log(bmi);
+
+
+
 
 
 
