@@ -1,5 +1,5 @@
-// Модуль 1. Змінні та типи. Розгалуження. Цикли.
-// Модуль 1 (Урок 1)
+// 🌞Модуль 1. Змінні та типи. Розгалуження. Цикли.
+// 🌻 Модуль 1 (Урок 1)
 
 // const value = prompt('Java Script');
   // if(value === 'js') {
@@ -28,7 +28,7 @@
   //   console.log('0')
   // }
 
-// Модуль 1 (Урок 2)
+// 🌻Модуль 1 (Урок 2)
 
   // const a = 90;
   // const b = 130;
@@ -79,8 +79,8 @@
   // }
 
 
-// Модуль 2. Масиви. Функції.
-// Модуль 2 (Урок 1)
+// 🌞Модуль 2. Масиви. Функції.
+// 🌻Модуль 2 (Урок 1)
 
   // const array = [1, 'Hello', null, true, [1, 2, 3]];
   // for(let i = 0; i < array.length; i += 1) {
@@ -147,7 +147,7 @@
 //   };
 //   console.log(min);
 
-// Модуль 2 (Урок 2)
+// 🌻Модуль 2 (Урок 2)
 
 // function add() {
 //     let sum = 0;
@@ -175,15 +175,129 @@
 // add(1, 2, 3, 4, 5);
 // add(1, 2, 3, 4, 5, 6);
 
-function calsBMI(weight, height) {
-    weight = Number(weight.replace(',', '.'));
-    height = Number(height.replace(',', '.'));
+// function calsBMI(weight, height) {
+//     weight = Number(weight.replace(',', '.'));
+//     height = Number(height.replace(',', '.'));
 
-    // return Number((weight/Math.pow(height, 2)).toFixed(1));
-    return Number((weight/height**2).toFixed(1));
-}
-const bmi = calsBMI('88,3', '1.75');
-console.log(bmi);
+//     // return Number((weight/Math.pow(height, 2)).toFixed(1));
+//     return Number((weight/height**2).toFixed(1));
+// }
+// const bmi = calsBMI('88,3', '1.75');
+// console.log(bmi);
+
+// function min(a, b) {
+//   if(a > b) {
+//     return b;
+//   }
+//   return a;
+// };
+// console.log(min(5, 10));
+// console.log(min(-13, 12));
+// console.log(min(1, 1));
+
+// function min(a, b) {
+//   return a > b ? b : a;
+// };
+// console.log(min(5, 10));
+// console.log(min(-13, 12));
+// console.log(min(1, 1));
+
+// function getRectArea(dimensions) {
+//   dimensions = dimensions.split(' '); //перетворили рядок на масив
+//   const first = Number(dimensions[0]);
+//   const second = Number(dimensions[1]);
+//   return first * second;
+// };
+// console.log(getRectArea('8 11'));
+// console.log(getRectArea('13 19'));
+// console.log(getRectArea('9 23'));
+
+// function logItems(items) {
+//   for(let i = 0, num = 1; i < items.length; i += 1, num += 1) {
+//     console.log(`${num} - ${items[i]}`); 
+//   }
+// };
+// logItems(['Mango', 'Poli', 'Ajax', 'Doli']);
+// logItems(['🍅', '🍎', '🍓', '🍐', '🍌', '🍍']);
+
+// function printContactInfo(names, phone) {
+//   names = names.split(',');
+//   phone = phone.split(',');
+//   for(let i = 0; i < names.length, i < phone.length; i += 1) {
+//     console.log(`${names[i]} - ${phone[i]}`);
+//   }
+// };
+// printContactInfo('Solomon, Jacob, Artem', '0501471213, 0661234556, 0951593526');
+
+// function findLargesNumber() {
+//   const arr = [...arguments];
+//   let max = arr[0];
+//   for(const num of arr) {
+//     if(num > max) {
+//       max = num;
+//     }
+//   }
+//   return max;
+// };
+// console.log(findLargesNumber(2, 17, 62, 1, 23, 57)); //62
+// console.log(findLargesNumber(49, 4, 7, 83, 12)); //83
+
+//Рівень Junior с зірочкой 🌟
+// function findLargesNumber() {
+//   let max;
+//   for(const num of arguments) {
+//     if(typeof num === 'number') {
+//       max = num;
+//       break;
+//     }
+//   }
+//   for(const num of arguments) {
+//     if(typeof num === 'number') {
+//       if(num > max) {
+//         max = num;
+//       }
+//     } else {
+//       max = findLargesNumber(...num);
+//     }
+//   }  
+//    return max; 
+// };
+// console.log(findLargesNumber(2, [123, 15], 17, 62, 1, 23, 57)); //123
+
+// function calAverage() {
+//   let total = 0;
+//   for(const num of arguments) {
+//     total += num;
+//   }
+//   return total / arguments.length;
+// };
+// console.log(calAverage(1, 2, 3, 4, 5));
+
+// function formatTime(minutes) {
+//   const hours = Math.floor(minutes/60);
+//   minutes = minutes % 60;
+//   return `${hours.toString().padStart(2, '0')} : ${minutes.toString().padStart(2, '0')}`;
+// };
+// console.log(formatTime(70)); // "01:10"
+// console.log(formatTime(450)); // "07:30"
+// console.log(formatTime(1441)); // "24:01"
+
+let courses = ['HTML', 'JS', 'React', 'Node'];
+function updateCourse(oldCourse, newCourse) {
+  const idx = courses.indexOf(oldCourse);
+  if(!!~idx) {
+    courses.splice(idx, 1, newCourse);
+    return courses; 
+  }
+  return 'Такий курс не знайдено';
+};
+console.log(updateCourse('React', 'React Native'));
+
+// console.log(!!~-1); // !!~ працює по формулі -(x+1)
+
+
+
+
 
 
 
