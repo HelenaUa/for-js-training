@@ -282,18 +282,89 @@
 // console.log(formatTime(450)); // "07:30"
 // console.log(formatTime(1441)); // "24:01"
 
-let courses = ['HTML', 'JS', 'React', 'Node'];
-function updateCourse(oldCourse, newCourse) {
-  const idx = courses.indexOf(oldCourse);
-  if(!!~idx) {
-    courses.splice(idx, 1, newCourse);
-    return courses; 
-  }
-  return 'Такий курс не знайдено';
-};
-console.log(updateCourse('React', 'React Native'));
+// function foo(array) {
+//   for(let i = 0; i < array.length; i++) {
+//     array[i] *=2;
+//   }
+// }
+// const numbers = [1, 2, 3, 4, 5];
+// console.log(numbers); // [1, 2, 3, 4, 5]
+// console.log(foo(numbers)); // undefined, бо немає return
+// console.log(numbers); // [2, 4, 6, 8, 10]
+
+// let courses = ['HTML', 'JS', 'React', 'Node'];
+// function updateCourse(oldCourse, newCourse) {
+//   const idx = courses.indexOf(oldCourse);
+//   if(!!~idx) {
+//     courses.splice(idx, 1, newCourse);
+//     return courses; 
+//   }
+//   return 'Такий курс не знайдено';
+// };
+// console.log(updateCourse('React', 'React Native'));
 
 // console.log(!!~-1); // !!~ працює по формулі -(x+1)
+
+
+// 🌞Модуль 3. Об'єкти. Операції rest та spread.
+// 🌻Модуль 3 (Урок 1)
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze
+
+// const user = {
+//   score: false
+// }
+// if('score' in user) {
+//   console.log('yes')
+// } else {
+//   console.log('no')
+// }
+
+// const user = {
+//   score: false
+// }
+// if(user.hasOwnProperty('score')) {
+//   console.log('yes')
+// } else {
+//   console.log('no')
+// }
+
+// const user = {
+//   name: 'Mango',
+//   age: 30,
+//   hobby: 'html',
+//   premium: true,
+// };
+// user.mood = 'happy';
+// user.hobby = 'skyjumping';
+// user['premium'] = false;
+// // const key = 'premium';
+// // user[key] = false;
+// console.log(user);
+// const keys = Object.keys(user);
+// for(const key of keys) {
+//   console.log(user[key]);
+// }
+// console.log(keys);
+
+const salaries = {
+  John: 100,
+  Ann: 160,
+  Pete: 130,
+}
+//for...in - 1 способ
+// let sum = 0;
+// for(const key in salaries) {
+//   sum += salaries[key]
+// }
+// console.log(sum);
+// Object.values and for...of - 2 способ
+let sum = 0;
+const values = Object.values(salaries);
+for(const value of values) {
+  sum += value ;
+}
+console.log(sum);
 
 
 
