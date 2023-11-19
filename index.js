@@ -149,6 +149,23 @@
 
 // 🌻Модуль 2 (Урок 2)
 
+// let sum = 0;
+// function addSum(num) {
+//   sum = sum + num;
+// }
+// console.log(addSum(3)); // undefined  бо не має return
+
+// function orderMyLogic(val) {
+//   if (val < 5) {
+//     return "Less than 5";
+//   } else if (val < 10) {
+//     return "Less than 10";
+//   } else {
+//     return "Greater than or equal to 10";
+//   }
+// }
+// console.log(orderMyLogic(4));
+
 // function add() {
 //     let sum = 0;
 //     console.log(arguments); //виведе всі аргументи, скільки б їх не було
@@ -347,11 +364,11 @@
 // }
 // console.log(keys);
 
-const salaries = {
-  John: 100,
-  Ann: 160,
-  Pete: 130,
-}
+// const salaries = {
+//   John: 100,
+//   Ann: 160,
+//   Pete: 130,
+// }
 //for...in - 1 способ
 // let sum = 0;
 // for(const key in salaries) {
@@ -359,12 +376,148 @@ const salaries = {
 // }
 // console.log(sum);
 // Object.values and for...of - 2 способ
-let sum = 0;
-const values = Object.values(salaries);
-for(const value of values) {
-  sum += value ;
-}
-console.log(sum);
+// let sum = 0;
+// const values = Object.values(salaries);
+// for(const value of values) {
+//   sum += value ;
+// }
+// console.log(sum);
+
+// 🌻Модуль 3 (Урок 2)
+
+// const arr = [1, 2, 3];
+// const [a, b, c] = arr; // деструктуризація масиву
+// console.log(a); // 1
+// console.log(b); // 2
+// console.log(c); // 3
+// -------------------------------------------------
+// const [_, b, c] = arr; // деструктуризація масиву
+// console.log(b); // 2
+// console.log(c); // 3
+
+// const user = {
+//   name: 'Mango',
+//   age: 11,
+//   skills: {
+//     html: true,
+//     css: true,
+//     js: false
+//   }
+// };
+// const {name, skills} = user; // деструктурізація об'єкту 
+// console.log(skills); // { html: true, css: true, js: false}
+// -------------------------------------------------------------
+// const {name: userName, skills} = user; // переіменування ключа об'єкта
+// console.log(userName); // Mango
+// --------------------------------------------------------------------
+// const {name, skills: {js}} = user;
+// console.log(js); // false
+// console.log(skills); // Uncaught ReferenceError: skills is not defined помилка в консолі
+// -----------------------------------------------------------------------------------------
+
+// const users = [{
+//   name: 'User1',
+//   language: 'html'
+// }, {
+//   name: 'User2',
+//   language: 'css'
+// }, {
+//   name: 'User3',
+//   language: 'js'
+// }];
+// for(const {name, language} of users) {
+//   console.log(name, language); // User1 html і т.д
+// }; 
+// ------------------------------------------------------------------------------------
+// for(const {name, language = 'no'} of users) { // language = 'no' значення по дефолту
+//   console.log(name, language); // User1 html і т.д
+// }; 
+
+// const arr = [56, 22, 4, 25, 7];
+// const min = Math.min(...arr); //...spread
+// console.log(min);
+// ----------------------------------------------
+// const arr1 = [...arr]; // робимо копію масива arr 
+// console.log(arr1);
+// ----------------------------------------------
+// const [first, ...props] = arr; // ...rest
+// console.log(first);
+// console.log(props);
+// for(i = 0; i < props.length; i += 1) {
+//   props[i] *= first;
+// };
+// console.log(props);
+//--------------------------
+// це дока до функцуії foo()
+/** 
+ * 
+ * @param {Number} first 
+ * @param {Number} second 
+ */
+// function foo(first, second) {
+//   console.log(first, second);
+// };
+// foo(...arr); // spread // 56 22
+
+// деструктурізація функціі, щоб не використовувати for...of
+// function getStockReport({companyName, stock: {repairBots, deferenceBots}}) {
+//   const total = repairBots + deferenceBots;
+//   return `${companyName} has ${total} items in stock`
+// };
+// console.log(getStockReport({
+//   companyName: 'Cyber Systems', 
+//   stock: {
+//     repairBots: 150,
+//     deferenceBots: 200
+//   }
+// }));
+
+// function transformUserName({firstName, lastName, ...props}) {
+//   return {
+//     fulName: `${firstName} ${lastName}`,
+//     ...props
+//   }
+// };
+// console.log(transformUserName({
+//   id: 1,
+//   firstName: 'Jacob',
+//   lastName: 'Dorn',
+//   email: 'jd@gmail.com',
+//   friendCount: 40
+// }));
+
+// const user = {
+//   email: 'us@gmail.com',
+//   age: 30
+// };
+// const {username = 'User'} = user;
+// console.log(username); // User
+
+// const user = {
+//   email: 'us@gmail.com',
+//   age: 30,
+//   location: {
+//     lat: 10,
+//     lon: 20
+//   }
+// };
+// const {location: {lat, lon}} = user;
+// console.log(lat, lon); // 10, 20
+
+function foo({username} = {}) {
+  console.log(username); // undefined
+};
+foo();
+
+
+
+
+
+
+
+
+
+
 
 
 
