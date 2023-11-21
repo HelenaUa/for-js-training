@@ -1,5 +1,5 @@
-// 🌞Модуль 1. Змінні та типи. Розгалуження. Цикли.
-// 🌻 Модуль 1 (Урок 1)
+// 🌞🌞🌞🌞🌞Модуль 1.🌞🌞🌞🌞🌞  
+// 🌻 Модуль 1 (Урок 1). Змінні та типи.
 
 // const value = prompt('Java Script');
   // if(value === 'js') {
@@ -28,7 +28,7 @@
   //   console.log('0')
   // }
 
-// 🌻Модуль 1 (Урок 2)
+// 🌻Модуль 1 (Урок 2). Розгалуження. Цикли.
 
   // const a = 90;
   // const b = 130;
@@ -70,6 +70,54 @@
   //   default: console.log('дата у майбутньому');
   // };
 
+  // function caseInSwitch(val) {
+  //   let answer = "";
+  //   switch(val) {
+  //     case 1:
+  //       answer = "alpha";
+  //       break;
+  //     case 2:
+  //       answer = "beta";
+  //       break;
+  //     case 3:
+  //       answer = "gamma";
+  //       break;
+  //     case 4:
+  //       answer = "delta";
+  //       break;
+  //   }
+  //   return answer;
+  // };
+  // console.log(caseInSwitch(1));
+
+// let count = 0;
+// function cc(card) {
+//   switch(card) {
+//     case 2:
+//     case 3:
+//     case 4:
+//     case 5:
+//     case 6: 
+//       count += 1;
+//       break;
+//     case 7:
+//     case 8:
+//     case 9: 
+//       count;
+//       break;
+//     case 10:
+//     case 'J':
+//     case 'Q':
+//     case 'K':
+//     case 'A':
+//       count -= 1;
+//       break;
+//   }
+//   return count > 0 ? `${count} Bet`: `${count} Hold`;
+// };
+// console.log(cc(2)); console.log(cc(3)); console.log(cc(7)); 
+// console.log(cc('K')); console.log(cc('A'));
+
   // const min = 50;
   // const max = 100;
   // for(let i = min; i <= max && i >= min; i +=1) {
@@ -79,8 +127,8 @@
   // }
 
 
-// 🌞Модуль 2. Масиви. Функції.
-// 🌻Модуль 2 (Урок 1)
+// 🌞🌞🌞🌞🌞🌞Модуль 2.🌞🌞🌞🌞🌞  
+// 🌻Модуль 2 (Урок 1). Масиви.
 
   // const array = [1, 'Hello', null, true, [1, 2, 3]];
   // for(let i = 0; i < array.length; i += 1) {
@@ -147,7 +195,7 @@
 //   };
 //   console.log(min);
 
-// 🌻Модуль 2 (Урок 2)
+// 🌻Модуль 2 (Урок 2). Функції.
 
 // let sum = 0;
 // function addSum(num) {
@@ -323,8 +371,8 @@
 // console.log(!!~-1); // !!~ працює по формулі -(x+1)
 
 
-// 🌞Модуль 3. Об'єкти. Операції rest та spread.
-// 🌻Модуль 3 (Урок 1)
+// 🌞🌞🌞🌞🌞Модуль 3.🌞🌞🌞🌞🌞  
+// 🌻Модуль 3 (Урок 1). Об'єкти.
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze
 
@@ -383,7 +431,7 @@
 // }
 // console.log(sum);
 
-// 🌻Модуль 3 (Урок 2)
+// 🌻Модуль 3 (Урок 2). Операції rest та spread.
 
 // const arr = [1, 2, 3];
 // const [a, b, c] = arr; // деструктуризація масиву
@@ -504,10 +552,64 @@
 // const {location: {lat, lon}} = user;
 // console.log(lat, lon); // 10, 20
 
-function foo({username} = {}) {
-  console.log(username); // undefined
-};
-foo();
+// function foo({username} = {}) {
+//   console.log(username); // undefined
+// };
+// foo();
+
+
+// 🌞🌞🌞🌞🌞Модуль 4.🌞🌞🌞🌞🌞 
+// 🌻Модуль 4 (Урок 1). Колбеки та стрілочні функції
+
+// const arr = [2, 6, 8, 5, 4, 3];
+// function each(arr, callback) {
+//   let total = arr[0];
+//   for(let i = 1; i < arr.length; i += 1) {
+//     // console.log(callback);
+//     total = callback(total, arr[i]);
+//   }
+//   return total;
+// };
+// function add(first, second) { // callback function
+//   return first + second;
+// };
+// function sum(first, second) { // callback function
+//   return first * second;
+// };
+// console.log(each(arr, add));
+// console.log(each(arr, sum));
+
+// forEach
+// const arr = [1, 2, 3, 4, 5];
+// arr.forEach(element => console.log(element));
+// ----------------------------------------------
+// arr.forEach(function(element, i, arr){
+//   arr[i] = element * 2;
+// })
+// console.log(arr); // [2, 4, 6, 8, 10]
+// forEach не можна присвоювати до змінної, бо завжди буде undefined
+// також в ньому не може бути break і return
+
+// const logItems = arr => arr.forEach((item, idx) => console.log(`${idx + 1} - ${item}`));
+// logItems(['Poly', 'Mango', 'Ajax']);
+// logItems(['🍅', '🍋', '🍐', '🍑']);
+
+// const calculateAverage = (...arr) => {
+//   let total = 0;
+//   arr.forEach(value => total += value);
+//   return total / arr.length;
+// };
+// console.log(calculateAverage(1, 2, 3, 4)); // 2.5
+// console.log(calculateAverage(14, 8, 2)); // 8
+// console.log(calculateAverage(11, 23, 3, 7, 4)); //9.6
+
+function foo(callback) {
+  callback(10);
+}
+function logger(value) {
+  console.log(value);
+}
+foo(logger); // так повинна передаватися ф-ція logger як ф-ція-колбек
 
 
 
