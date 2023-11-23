@@ -126,6 +126,63 @@
   //   }
   // }
 
+// const myArray = [];
+// let i = 5;
+//   while (i >= 0) {
+//     myArray.push(i);
+//     i -= 1;
+//   }
+// console.log(myArray); // [5, 4, 3, 2, 1, 0]
+
+// const myArray = [];
+// for(let i = 1; i <= 5; i +=1) {
+// myArray.push(i);
+// }
+// console.log(myArray); // [1, 2, 3, 4, 5]
+
+// const myArray = [];
+// for(let i = 1; i <= 9; i += 2) {
+// myArray.push(i);
+// }
+// console.log(myArray); // [1, 3, 5, 7, 9]
+
+// const myArray = [];
+// for(let i = 9; i > 0; i -= 2) {
+// myArray.push(i);
+// }
+// console.log(myArray); // [9, 7, 5, 3, 1]
+
+// const myArr = [2, 3, 4, 5, 6];
+// let total = 0;
+// for(let i = 0; i < myArr.length; i += 1) {
+// console.log(total += myArr[i]); // 20
+// }
+
+// function multiplyAll(arr) {
+//   let product = 1;
+//   for(let i = 0; i < arr.length; i++) {
+//     for(let j = 0; j < arr[i].length; j++) {
+//       product *= arr[i][j];
+//     }
+//   }
+//   return product;
+// }
+// console.log(multiplyAll([[1, 2], [3, 4], [5, 6, 7]])); // 5040
+
+// const myArray = [];
+// let i = 10;
+// do {
+// myArray.push(i);
+//   i++;
+// }
+// while (i < 10);
+// console.log(myArray); // [10]
+
+// function checkSign(num) {
+//   return num > 0 ? "positive" : (num < 0) ? "negative" : "zero";
+// }
+// console.log(checkSign(10));
+
 
 // 🌞🌞🌞🌞🌞🌞Модуль 2.🌞🌞🌞🌞🌞  
 // 🌻Модуль 2 (Урок 1). Масиви.
@@ -370,6 +427,39 @@
 
 // console.log(!!~-1); // !!~ працює по формулі -(x+1)
 
+// // рекурсія
+// function sum(arr, n) {
+//   if(n <= 0) {
+//     return 0;
+//   } else {
+//     return sum(arr, n - 1) + arr[n-1]
+//   }
+// }
+// console.log(sum([1, 2, 3], 2)); // 3 - сума двох перших елементів масива
+
+// Використання рекурсії для створення зворотного відліку
+// function countdown(n){
+//   if (n < 1) {
+//    return [];
+//  } else {
+//    const countArray = countdown(n - 1);
+//    countArray.unshift(n);
+//    return countArray;
+//  }
+// }
+// console.log(countdown(5)); // [5, 4, 3, 2, 1]
+
+// function rangeOfNumbers(startNum, endNum) {
+//   if (startNum > endNum) {
+//   return [];
+// } else {
+//   const countArray = rangeOfNumbers(startNum, endNum - 1);
+//   countArray.push(endNum);
+//   return countArray;
+// }
+// }
+// console.log(rangeOfNumbers(3, 7)); // [3, 4, 5, 6, 7]
+
 
 // 🌞🌞🌞🌞🌞Модуль 3.🌞🌞🌞🌞🌞  
 // 🌻Модуль 3 (Урок 1). Об'єкти.
@@ -557,6 +647,52 @@
 // };
 // foo();
 
+// const contacts = [
+//   {
+//     firstName: "Akira",
+//     lastName: "Laine",
+//     number: "0543236543",
+//     likes: ["Pizza", "Coding", "Brownie Points"],
+//   },
+//   {
+//     firstName: "Harry",
+//     lastName: "Potter",
+//     number: "0994372684",
+//     likes: ["Hogwarts", "Magic", "Hagrid"],
+//   },
+//   {
+//     firstName: "Sherlock",
+//     lastName: "Holmes",
+//     number: "0487345643",
+//     likes: ["Intriguing Cases", "Violin"],
+//   },
+//   {
+//     firstName: "Kristian",
+//     lastName: "Vos",
+//     number: "unknown",
+//     likes: ["JavaScript", "Gaming", "Foxes"],
+//   },
+// ];
+// function lookUpProfile(name, prop) {
+//   for (let i = 0; i < contacts.length; i++) {
+//     if (contacts[i].firstName === name) {
+//       if (contacts[i].hasOwnProperty(prop)) {
+//         return contacts[i][prop];
+//       } else {
+//         return "No such property";
+//       }
+//     }
+//   }
+//   return "No such contact";
+// }
+// console.log(lookUpProfile("Akira", "likes"));
+
+// // Використання функції parseInt з розрядом
+// function convertToInteger(str) { 
+//   return parseInt(str, 2);  // parseInt(string, radix);
+//   }
+// console.log(convertToInteger("10011")); // 19
+
 
 // 🌞🌞🌞🌞🌞Модуль 4.🌞🌞🌞🌞🌞 
 // 🌻Модуль 4 (Урок 1). Колбеки та стрілочні функції
@@ -603,13 +739,71 @@
 // console.log(calculateAverage(14, 8, 2)); // 8
 // console.log(calculateAverage(11, 23, 3, 7, 4)); //9.6
 
-function foo(callback) {
-  callback(10);
-}
-function logger(value) {
-  console.log(value);
-}
-foo(logger); // так повинна передаватися ф-ція logger як ф-ція-колбек
+// function foo(callback) {
+//   callback(10);
+// }
+// function logger(value) {
+//   console.log(value);
+// }
+// foo(logger); // так повинна передаватися ф-ція logger як ф-ція-колбек
+
+// Функція updateRecords приймає 4 аргументи, представлені такими параметрами функції:
+// records — об’єкт, що містить декілька окремих альбомів
+// id — число, що позначає певний альбом в об’єкті records
+// prop — рядок, що позначає назву властивості альбому, яку потрібно оновити
+// value — рядок, що містить інформацію, яка використовується для оновлення властивості альбому
+// --------------------------------------------------------------------------------------------
+// Завершіть функцію, використовуючи правила нижче, щоб змінити об’єкт, переданий до функції.
+// Ваша функція завжди повинна повертати весь об’єкт records.
+// Якщо value є пустим рядком, видаліть дану властивість prop з альбому.
+// Якщо prop не є tracks та value не є пустим рядком, призначте value до prop альбому.
+// Якщо prop є tracks та value не є пустим рядком, вам треба оновити масив tracks в альбомі. 
+// Якщо альбом не має властивості tracks, то призначте порожній масив. 
+// Потім додайте value як останній елемент у масиві tracks альбому.
+// --------------------------------------------------------------------------------------------
+// Примітка: копія об’єкту recordCollection використовується для тестів. 
+// Ви не повинні напряму змінювати об’єкт recordCollection.
+// const recordCollection = {
+//   2548: {
+//     albumTitle: 'Slippery When Wet',
+//     artist: 'Bon Jovi',
+//     tracks: ['Let It Rock', 'You Give Love a Bad Name']
+//   },
+//   2468: {
+//     albumTitle: '1999',
+//     artist: 'Prince',
+//     tracks: ['1999', 'Little Red Corvette']
+//   },
+//   1245: {
+//     artist: 'Robert Palmer',
+//     tracks: []
+//   },
+//   5439: {
+//     albumTitle: 'ABBA Gold'
+//   }
+// };
+// function updateRecords(records, id, prop, value) {
+//   const updatedRecords = { ...records };
+//   if (!updatedRecords[id]) {
+//     return updatedRecords;
+//   }
+//   if (value === "") {
+//     delete updatedRecords[id][prop];
+//   } else if (prop !== "tracks") {
+//     updatedRecords[id][prop] = value;
+//   } else {
+//     if (!updatedRecords[id].hasOwnProperty("tracks")) {
+//       updatedRecords[id]["tracks"] = [];
+//     }
+//     updatedRecords[id]["tracks"].push(value);
+//   }
+//   return records;
+// };
+// console.log(updateRecords(recordCollection, 5439, 'artist', 'ABBA'));
+
+// 🌻Модуль 4 (Урок 2). Перебираючі методи масиву
+
+
 
 
 
