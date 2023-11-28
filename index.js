@@ -801,8 +801,203 @@
 // };
 // console.log(updateRecords(recordCollection, 5439, 'artist', 'ABBA'));
 
+// const myConcat = (arr1, arr2) => arr1.concat(arr2);
+// console.log(myConcat([1, 2], [3, 4, 5])); // [1, 2, 3, 4, 5]
+
+// const increment = (number, value = 1) => number + value;
+// console.log(increment(4, 5)); // 9
+// console.log(increment(4)); // 5
+
 // 🌻Модуль 4 (Урок 2). Перебираючі методи масиву
 
+// map
+// const arr = [1, 2, 3, 4, 5];
+// const result = arr.map((item) => item * 2); // .map((item, idx, arr) => {})
+// console.log(result); // [ 2, 4, 6, 8, 10]
+// console.log(arr); // [1, 2, 3, 4, 5]
+// -------------------------------------------------------------------------
+// const result = arr.map(item => {
+//   if(!(item%2)) {
+//     return item * 3
+//   }
+//   return item
+// });
+// console.log(result); // [1, 6, 3, 12, 5]
+// --------------------------------------------------------------------------
+// const result = arr.map(item => !(item%2) ? item * 3 : item);
+// console.log(result); // [1, 6, 3, 12, 5]
+
+// flatMap - щоб розгладити масив
+// const arr = [{
+//   name: 'User1', 
+//   skills: ['html', 'css']
+// }, {
+//   name: 'User1', 
+//   skills: ['js', 'react']
+// }, {
+//   name: 'User1', 
+//   skills: ['node.js', 'express']
+// }];
+// const resultMap = arr.map(item => item.skills.map(skill => skill));
+// console.log(resultMap); // [['html', 'css'], ['js', 'react'], ['node.js', 'express']] 
+// const result = arr.flatMap(item => item.skills);
+// console.log(result); // ['html', 'css', 'js', 'react', 'node.js', 'express']
+
+// find - дозволяє знайти один конкретний елемент в масиві
+// const arr = [1, 2, 3, 4, 5];
+// const result = arr.find(item => item > 3);
+// console.log(result); // 4
+// --------------------------------------------------------
+// const arr = [{
+//   name: 'User1', 
+//   skills: ['html', 'css']
+//   }, {
+//   name: 'User2', 
+//   skills: ['js', 'react']
+//   }, {
+//   name: 'User3', 
+//   skills: ['node.js', 'express']
+// }];
+// const result = arr.find(item => item.skills.includes('js')).name;
+// console.log(result); // User2
+
+// findIndex
+// const arr = [{
+//   name: 'User1', 
+//   skills: ['html', 'css']
+//   }, {
+//   name: 'User2', 
+//   skills: ['js', 'react']
+//   }, {
+//   name: 'User3', 
+//   skills: ['node.js', 'express']
+// }];
+// const result = arr.findIndex(item => item.skills.includes('js'));
+// console.log(result); // 1
+
+// filter - знаходить всі елементи, які задовольняють вимогам
+// const arr = [1, 2, 3, 4, 5];
+// const result = arr.filter(item => !(item%2)); // повертає всі парні
+// console.log(result); // [2, 4] 
+
+// every - чи всі елементи відповідають умові
+// const arr = [1, 2, 3, 4, 5];
+// const result = arr.every(item => !(item%2)); 
+// console.log(result); // false
+
+// some - хоча б один задовільняє умові
+// const arr = [1, 2, 3, 4, 5];
+// const result = arr.some(item => !(item%2)); 
+// console.log(result); // true
+
+// sort 
+// const arr = [21, 2, 35, 4, 15];
+// const result = arr.sort((a, b) => a - b); 
+// console.log(result); // [2, 4, 15, 21, 35]
+// ---------------------------------------
+// const result = arr.sort((a, b) => b - a); 
+// console.log(result); // [35, 21, 15, 4, 2]
+// console.log(arr); // [35, 21, 15, 4, 2] - мутує похідний масив!!!
+// ------------------------------------------------------------------
+// const result = [...arr].sort((a, b) => b - a); 
+// console.log(result); // [35, 21, 15, 4, 2]
+// console.log(arr); // [21, 2, 35, 4, 15] - не мутує похідний масив!!!
+// ---------------------------------------------------------------------
+// const str = ['s', 'b', 'A', 'a', 'f'];
+// const result = str.sort(); // сортування по юнікоду
+// console.log(result); // ['A', 'a', 'b', 'f', 's']
+// const result = str.sort((a, b) => a.localeCompare(b));
+// console.log(result); // ['a', 'A', 'b', 'f', 's']
+
+// reduce
+// const arr = [21, 2, 35, 4, 15];
+// const result = arr.reduce((acc, item) => {
+//   console.log('acc', acc);
+//   console.log('item', item);
+//   acc.push(item * 2);
+//   return acc
+// }, []);
+// console.log(result); // [42, 4, 70, 8, 30]
+
+// const cars = [
+//   {make: 'Honda', model: 'CR-V', type: 'suv', amount: 14, price: 24045, onSale: true},
+//   {make: 'Honda', model: 'Accord', type: 'sedan', amount: 2, price: 22455, onSale: true},
+//   {make: 'Mazda', model: 'Mazda 6', type: 'sedan', amount: 8, price: 24195, onSale: false},
+//   {make: 'Mazda', model: 'CX-9', type: 'suv', amount: 7, price: 31520, onSale: true},
+//   {make: 'Ford', model: 'F-150', type: 'truck', amount: 11, price: 27110, onSale: true},
+//   {make: 'Ford', model: 'Fusion', type: 'sedan', amount: 13, price: 22120, onSale: true}
+// ];
+// const getModels = cars.map(item => item.model);
+// console.log(getModels); // ['CR-V', 'Accord', 'Mazda 6', 'CX-9', 'F-150', 'Fusion']
+// --------------------------------------------------------------------------------------
+// const makeCarWithDiscount = (cars, discount) => {
+//   return cars.map(item => ({
+//     ...item, 
+//     price: item.price * (1 - discount)})
+//     )
+// };
+// console.log(makeCarWithDiscount(cars, 0.2)); // масив об'єктів зі зміненими цінами
+// ---------------------------------------------------------------------------------------
+// const filterByPrice = (cars, threshold) => {
+//   return cars.filter(({price}) => price < threshold);
+// };
+// console.log(filterByPrice(cars, 30000)); // масив об'єктів з price < 30000
+// ---------------------------------------------------------------------------------------
+// const carOnSale = (cars) => cars.filter(({onSale}) => onSale);
+// console.log(carOnSale(cars));
+// ---------------------------------------------------------------------------------------
+// const getCarType = (cars, type) => {
+//   return cars.filter(({type: carType}) => carType === type)
+// };
+// console.log(getCarType(cars, 'suv'));
+// ---------------------------------------------------------------------------------------
+// const getByAmount = cars => {
+//   return [...cars].sort((a, b) => a.amount - b.amount)
+// };
+// console.log(getByAmount(cars));
+// ---------------------------------------------------------------------------------------
+// const sortByModel = (cars, order) => {
+// //  return [...cars].sort((a, b) => order === 'abc' 
+// //  ? a.model.localeCompare(b.model) 
+// //  : b.model.localeCompare(a.model))
+// // };
+// // або деструктуризувати
+// return [...cars].sort(({model: a}, {model: b}) => order === 'abc' 
+// ? a.localeCompare(b) 
+// : b.localeCompare(a))
+// };
+// console.log(sortByModel(cars, 'abc')); // model по алфавіту
+// console.log(sortByModel(cars, 'desc')); // model з кінця алфавіту
+// -----------------------------------------------------------------------------------------
+// const getTotalAmount = cars => cars.reduce((acc, {amount}) => acc + amount, 0);
+// console.log(getTotalAmount(cars));
+// -----------------------------------------------------------------------------------------
+// const getModelOnSale = cars => cars.filter(({onSale}) => onSale).map(({make, model}) => `${make} ${model}`);
+// console.log(getModelOnSale(cars));
+
+// таке може бути на співбесіді
+// const str = 'jkfnvtydbvvdfpoimdjkldscvzaa';
+// const result = str.split('').reduce((acc, item) => {
+//   acc.hasOwnProperty(item) ? acc[item] +=1 : acc[item] = 1;
+//   return acc;
+// }, {})
+// console.log(result); // об'єкт в якого літера: кількість літер в рядку (ключ: значення)
+
+// function logCars(arr) {
+//   const result = arr.reduce((acc, item, idx) => {
+//     return acc + `${idx+1} - ${item}\n`
+// }, arr.length ?`Загальна кількість авто: ${arr.length}\n` : `Вибачте авто немає 🤷‍♀️`)
+// return result
+// }
+// console.log(logCars(['Honda', 'Audi', 'BMW', 'Skoda', 'Ford', 'Renault']));
+// console.log(logCars([]));
+
+const fruitBasket = ['apple', 'banana', 'orange', 'cherry', 'banana', 'apple', 'orange'];
+const count = fruitBasket.reduce((acc, item) => {
+  acc[item] = (acc[item] || 0) + 1;
+  return acc;
+}, {});
+console.log(count);
 
 
 
@@ -826,6 +1021,53 @@
 
 
 
+
+
+
+// Деструктуризація через залишкові елементи
+// function removeFirstTwo(list) {
+//   const [, , ...rest] = list;
+//   return rest;
+// }
+// const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const sourceWithoutFirstTwo = removeFirstTwo(source);
+// console.log(removeFirstTwo(source));
+
+// const stats = {
+//   max: 56.78,
+//   standard_deviation: 4.34,
+//   median: 34.54,
+//   mode: 23.87,
+//   min: -0.75,
+//   average: 35.85
+// };
+// // const half = (stats) => (stats.max + stats.min) / 2.0; 
+// const half = ({max, min}) => (max + min) / 2.0;
+// console.log(half(stats)); // 28.015
+
+// const result = {
+//   success: ["max-length", "no-amd", "prefer-arrow-functions"],
+//   failure: ["no-var", "var-on-top", "linebreak"],
+//   skipped: ["no-extra-semi", "no-dup-keys"]
+// };
+// function makeList(arr) {
+//   const failureItems = [];
+//   for(let i = 0; i < arr.length; i++) {
+//     failureItems.push(`<li class="text-warning">${arr[i]}</li>`);
+//   }
+//   return failureItems;
+// };
+// const failuresList = makeList(result.failure);
+// console.log(failuresList);
+
+// Синтаксис class для визначення конструктурної функції
+// class Vegetable {
+//   constructor(name) {
+//     this.name = name;
+//   }
+// };
+// const carrot = new Vegetable('carrot');
+// console.log(carrot.name); // carrot
 
 
 
