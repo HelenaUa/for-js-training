@@ -992,12 +992,12 @@
 // console.log(logCars(['Honda', 'Audi', 'BMW', 'Skoda', 'Ford', 'Renault']));
 // console.log(logCars([]));
 
-const fruitBasket = ['apple', 'banana', 'orange', 'cherry', 'banana', 'apple', 'orange'];
-const count = fruitBasket.reduce((acc, item) => {
-  acc[item] = (acc[item] || 0) + 1;
-  return acc;
-}, {});
-console.log(count);
+// const fruitBasket = ['apple', 'banana', 'orange', 'cherry', 'banana', 'apple', 'orange'];
+// const count = fruitBasket.reduce((acc, item) => {
+//   acc[item] = (acc[item] || 0) + 1;
+//   return acc;
+// }, {});
+// console.log(count);
 
 
 
@@ -1009,7 +1009,7 @@ console.log(count);
 
 
 
-// 🔥🔥🔥🔥🔥FreeCodeCamp🔥🔥🔥🔥🔥
+// 🔥🔥🔥🔥🔥freeCodeCamp🔥🔥🔥🔥🔥
 // Шаблон у межах рядка
 // Зверніть увагу, що синтаксис .match є протилежним 
 // до методу .test, яким ви користувались дотепер:
@@ -1035,6 +1035,207 @@ console.log(count);
 // let temp = thermos.temperature; // 24.44 градусів за Цельсієм
 // thermos.temperature = 26;
 // temp = thermos.temperature; // 26 градусів за Цельсієм
+
+
+// // Функція повинна створити двовимірний масив із m рядками та n стовпцями з нулів 
+// function zeroArray(m, n) {
+//   // Створіть 2-D масив із m-рядків m та n-стовпчиків нулів
+//   let newArray = [];
+//     for (let i = 0; i < m; i++) {
+//     // Додайте m-ий рядок до newArray
+//   let row = [];
+//     for (let j = 0; j < n; j++) {
+//     // Додає n нулів до поточного рядка, щоб створити стовпчики
+//     row.push(0);
+//     }
+//     // Штовхає поточний рядок, який тепер містить n нулів, до масиву
+//     newArray.push(row);
+//   }
+//   return newArray;
+// }
+// let matrix = zeroArray(3, 2);
+// console.log(matrix); // [[ 0, 0 ], [ 0, 0 ], [ 0, 0 ]]
+
+// function forecast(arr) {
+//   return arr.splice(2, 2);
+// }
+// console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms'])); // ['warm', 'sunny']
+
+// function forecast(arr) {
+//   arr.splice(2, 2);
+//   return arr;
+// }
+// console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms'])); // ['cold', 'rainy', 'cool', 'thunderstorms']
+
+// Копіювання елементів масиву за допомогою slice()
+// function forecast(arr) {
+//   return arr.slice(2, 4);
+// }
+// console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms'])); // ['warm', 'sunny']
+
+// Копіювання масиву за допомогою оператора розширення
+// function copyMachine(arr, num) {
+//   let newArr = [];
+//   while (num >= 1) {
+//    newArr.push([...arr]); 
+//     num--;
+//   }
+//   return newArr;
+// }
+// console.log(copyMachine([true, false, true], 2)); // [[ true, false, true ], [ true, false, true ]]
+
+// function quickCheck(arr, elem) {
+//   return arr.indexOf(elem) !== -1;
+// }
+// console.log(quickCheck(['squash', 'onions', 'shallots'], 'mushrooms')); // false
+
+// Використан цикл for, щоб повернути відфільтровану версію переданого масиву так, щоб було 
+// вилучено будь-який вкладений масив з elem в межах arr.   
+// function filteredArray(arr, elem) {
+//   let newArr = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i].indexOf(elem) === -1) {
+//       newArr.push(arr[i]);
+//     }
+//   }
+//   return newArr;
+// }
+// console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3)); // []
+
+// let myNestedArray = [
+//   ["unshift", false, 1, 2, 3, "complex", "nested"],
+//   ["loop", "shift", 6, 7, 1000, "method"],
+//   ["concat", false, true, "spread", "array", ["deep"]],
+//   ["mutate", 1327.98, "splice", "slice", "push", [["deeper"]]],
+//   ["iterate", 1.3849, 7, "8.4876", "arbitrary", "depth", [[["deepest"]]]]
+// ];
+// let myNestedArray = [
+//   'level 1',                   /* myNestedArray[0]             */
+//   ['level 2'],	               /* myNestedArray[1][0]          */
+//   [['level 3','deep']],	       /* myNestedArray[2][0][0]       */
+//   [[['level 4','deeper']]],    /* myNestedArray[3][0][0][0]    */
+//   [[[['level 5','deepest']]]]  /* myNestedArray[4][0][0][0][0] */
+// ];
+
+// let foods = {
+//   apples: 25,
+//   oranges: 32,
+//   plums: 28,
+//   bananas: 13,
+//   grapes: 35,
+//   strawberries: 27
+// };
+// function checkInventory(scannedItem) {
+// return foods[scannedItem];
+// }
+// console.log(checkInventory("apples")); // 25
+
+// let foods = {
+//   apples: 25,
+//   oranges: 32,
+//   plums: 28,
+//   bananas: 13,
+//   grapes: 35,
+//   strawberries: 27
+// };
+// delete foods.oranges;
+// delete foods.plums;
+// delete foods.strawberries;
+// console.log(foods); // {apples: 25, bananas: 13, grapes: 35}
+
+// Функція повертає true, якщо переданий їй об’єкт містить всі чотири імені: Alan, Jeff, 
+// Sarah та Ryan, а в іншому випадку щоб повертала false
+// let users = {
+//   Alan: {
+//     age: 27,
+//     online: true
+//   },
+//   Jeff: {
+//     age: 32,
+//     online: true
+//   },
+//   Sarah: {
+//     age: 48,
+//     online: true
+//   },
+//   Ryan: {
+//     age: 19,
+//     online: true
+//   }
+// };
+// function isEveryoneHere(userObj) {
+//   return userObj.hasOwnProperty("Alan") &&
+//   userObj.hasOwnProperty("Jeff") &&
+//   userObj.hasOwnProperty("Sarah") &&
+//   userObj.hasOwnProperty("Ryan");
+// }
+// -----------------------------------------
+// function isEveryoneHere(userObj) {
+//   return ["Alan", "Jeff", "Sarah", "Ryan"].every(name =>
+//     userObj.hasOwnProperty(name)
+//   );
+// }
+// console.log(isEveryoneHere(users)); // true
+
+// function countOnline(usersObj) {
+//   let result = 0;
+//   for (let user in usersObj) {
+//     if (usersObj[user].online === true) {
+//       result++;
+//     }
+//   }
+//   return result;
+// }
+
+// let users = {
+//   Alan: {
+//     age: 27,
+//     online: false
+//   },
+//   Jeff: {
+//     age: 32,
+//     online: true
+//   },
+//   Sarah: {
+//     age: 48,
+//     online: false
+//   },
+//   Ryan: {
+//     age: 19,
+//     online: true
+//   }
+// };
+
+// function getArrayOfUsers(obj) {
+// return Object.keys(obj);
+// }
+// console.log(getArrayOfUsers(users)); // ['Alan', 'Jeff', 'Sarah', 'Ryan']
+
+let user = {
+  name: 'Kenneth',
+  age: 28,
+  data: {
+    username: 'kennethCodesAllDay',
+    joinDate: 'March 26, 2016',
+    organization: 'freeCodeCamp',
+    friends: [
+      'Sam',
+      'Kira',
+      'Tomo'
+    ],
+    location: {
+      city: 'San Francisco',
+      state: 'CA',
+      country: 'USA'
+    }
+  }
+};
+function addFriend(userObj, friend) {
+  userObj.data.friends.push(friend);
+  return userObj.data.friends;
+}
+console.log(addFriend(user, 'Pete')); // ['Sam', 'Kira', 'Tomo', 'Pete']
+
 
 
 
