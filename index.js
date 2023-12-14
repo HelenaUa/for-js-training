@@ -1211,32 +1211,265 @@
 // }
 // console.log(getArrayOfUsers(users)); // ['Alan', 'Jeff', 'Sarah', 'Ryan']
 
-let user = {
-  name: 'Kenneth',
-  age: 28,
-  data: {
-    username: 'kennethCodesAllDay',
-    joinDate: 'March 26, 2016',
-    organization: 'freeCodeCamp',
-    friends: [
-      'Sam',
-      'Kira',
-      'Tomo'
-    ],
-    location: {
-      city: 'San Francisco',
-      state: 'CA',
-      country: 'USA'
-    }
-  }
-};
-function addFriend(userObj, friend) {
-  userObj.data.friends.push(friend);
-  return userObj.data.friends;
-}
-console.log(addFriend(user, 'Pete')); // ['Sam', 'Kira', 'Tomo', 'Pete']
+// let user = {
+//   name: 'Kenneth',
+//   age: 28,
+//   data: {
+//     username: 'kennethCodesAllDay',
+//     joinDate: 'March 26, 2016',
+//     organization: 'freeCodeCamp',
+//     friends: [
+//       'Sam',
+//       'Kira',
+//       'Tomo'
+//     ],
+//     location: {
+//       city: 'San Francisco',
+//       state: 'CA',
+//       country: 'USA'
+//     }
+//   }
+// };
+// function addFriend(userObj, friend) {
+//   userObj.data.friends.push(friend);
+//   return userObj.data.friends;
+// }
+// console.log(addFriend(user, 'Pete')); // ['Sam', 'Kira', 'Tomo', 'Pete']
 
+// function reverseString(str) {
+//   let reversedStr = "";
+//   for (let i = str.length - 1; i >= 0; i--) {
+//     reversedStr += str[i];
+//   }
+//   return reversedStr;
+// }
+// -------------------------------------------
+// function reverseString(str) {
+//   return str.split("").reverse().join("");
+// }
+// console.log(reverseString("hello"));
 
+// function factorialize(num) {
+//   let n = 1;
+//   for(let i = 1; i <= num; i++) {
+//     n *= i; 
+//   }
+//   return n;
+// }
+// console.log(factorialize(5)); // 1*2*3*4*5=120 
+
+// 1️⃣Поверніть довжину найдовшого слова у даному реченні.
+// Ваша відповідь повинна бути числом.
+// function findLongestWordLength(str) {
+//   let arr = str.split(' ');
+//   let maxLength = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i].length > maxLength) {
+//       maxLength = arr[i].length;
+//     }
+//   }
+//   return maxLength;
+// }
+// ------------------------------------------------------------------------------------
+// function findLongestWordLength(s) {
+//   return s.split(' ').reduce((longest, word) => Math.max(longest, word.length), 0);
+// }
+// ------------------------------------------------------------------------------------
+// function findLongestWordLength(str) {
+//   return Math.max(...str.split(" ").map(word => word.length));
+// }
+// console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog")); // 6
+
+// 2️⃣Поверніть масив, який містить найбільше число з кожного наданого підмасиву.
+// function largestOfFour(arr) {
+//   const results = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     let largestNumber = arr[i][0];
+//     for (let j = 1; j < arr[i].length; j++) {
+//       if (arr[i][j] > largestNumber) {
+//         largestNumber = arr[i][j];
+//       }
+//     }
+//     results[i] = largestNumber;
+//   }
+//   return results;
+// }
+// console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]])); // [5, 27, 39, 1001]
+
+// 3️⃣Перевірте, чи рядок (перший аргумент, str) закінчується заданим 
+// цільовим рядком (другий аргумент, target).
+// function confirmEnding(str, target) {
+//   return str.slice(-target.length) === target;
+// }
+// ----------------------------------------------------------------
+// function confirmEnding(str, target) {
+//   return str.slice(str.length - target.length) === target;
+// }
+// console.log(confirmEnding("Bastian", "n"));
+
+// 4️⃣Повторіть заданий рядок str (перший аргумент) num разів (другий аргумент). Поверніть порожній рядок, 
+// якщо num не є додатним числом.
+// function repeatStringNumTimes(str, num) {
+//   let accStr = '';
+//   for(let i = 0; i < num; i++) {
+//     accStr += str
+//   }
+//   return accStr;
+// }
+// ----------------------------------------------------------------------------------------------------
+// function repeatStringNumTimes(str, num) {
+//   return num > 0 ? str + repeatStringNumTimes(str, num - 1) : '';
+// }
+// console.log(repeatStringNumTimes("abc", 3)); // "abcabcabc"
+
+// 5️⃣Скоротіть рядок (перший аргумент), якщо він довший за максимальну довжину рядка (другий аргумент). 
+// Поверніть скорочений рядок із закінченням ....
+// function truncateString(str, num) {
+//   return str.length > num ? str.slice(0, num) + "..." : str;
+// }
+// -------------------------------------------------------------------------------------------------
+// function truncateString(str, num) {
+//   if (str.length > num) {
+//     return str.slice(0, num) + "...";
+//   } else {
+//     return str;
+//   }
+// }
+// console.log(truncateString("A-tisket a-tasket A green and yellow basket", 8)); // A-tisket...
+
+// 6️⃣Створіть функцію, яка переглядає масив arr та повертає перший елемент у ньому, який проходить 
+// тест на «істинність». Це означає, що даний елемент x пройшов тест на «істинність», 
+// якщо func(x) є true. Якщо жодний елемент не проходить тест, поверніть undefined.
+// function findElement(arr, func) {
+//   return arr.find(func);
+// }
+// console.log(findElement([1, 2, 3, 4], num => num % 2 === 0)); // 2
+
+// 7️⃣Перевірте, чи значення належить до булевого примітивного. Поверніть true або false.
+// function booWho(bool) {
+//   return typeof bool === 'boolean';
+// }
+// console.log(booWho(null)); // false
+
+// 8️⃣Поверніть заданий рядок, де кожне слово починається з великої літери. 
+// Переконайтеся, що інші літери написані в нижньому регістрі.
+// function titleCase(str) {
+//   const arr = str.split(" ");
+//   const updatedTitle = [];
+//   for (let st in arr) {
+//     updatedTitle[st] = arr[st][0].toUpperCase() + arr[st].slice(1).toLowerCase();
+//   }
+//   return updatedTitle.join(" ");
+// }
+// ------------------------------------------------------------------------------------------
+// function titleCase(str) {
+//   return str
+//     .toLowerCase()
+//     .split(" ")
+//     .map(val => val.replace(val.charAt(0), val.charAt(0).toUpperCase()))
+//     .join(" ");
+// }
+// console.log(titleCase("I'm a little tea pot")); // I'm A Little Tea Pot
+
+// 9️⃣Вам надано два масиви та індекс.
+// Скопіюйте кожний елемент з першого масиву у другий за порядком.
+// Розпочніть вставляти елементи з індексу n другого масиву.
+// Поверніть отриманий масив. Вхідні масиви повинні залишатись незмінними після запуску функції.
+// function frankenSplice(arr1, arr2, n) {
+//   return [...arr2.slice(0, n), ...arr1, ...arr2.slice(n)];
+// }
+// console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1)); // [4, 1, 2, 3, 5, 6]
+
+// 🔟Видаліть всі неправильні значення з масиву. Поверніть новий масив; не змінюйте вихідний масив.
+// Неправильні значення в JavaScript: false, null, 0, "", undefined та NaN.
+// Підказка: спробуйте перетворити кожне значення у булеве.
+// function bouncer(arr) {
+//   let newArr = [];
+//   for(let i=0; i< arr.length; i++) {
+//     if(arr[i]) {
+//        newArr.push(arr[i])
+//     }
+//   }
+//   return newArr;
+// }
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------
+// function bouncer(arr) {
+//   return arr.filter(Boolean);  // створює новий масив, в якому включені тільки ті елементи arr, які є "істинними" за правилами перевірки значень в JavaScript.
+// }
+// console.log(bouncer([7, "ate", "", false, 9])); // [7, "ate", 9]
+
+// 1️⃣1️⃣Поверніть найменший індекс, при якому потрібно вставити значення (другий аргумент) 
+// в масив (перший аргумент), після того, як він був відсортований. Поверненим значенням повинне 
+// бути число.
+// Наприклад, getIndexToIns([20,3,5], 19) має повертати 2, оскільки після сортування масиву він виглядатиме як [3,5,20], 
+// а 19 менше за 20 (індекс 2) та більше за 5 (індекс 1).
+// function getIndexToIns(arr, num) {
+//   arr.sort((a, b) => a - b);
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] >= num) return i;
+//   }
+//   return arr.length;
+// }
+// --------------------------------------------------------------------------------------------------------------------
+// function getIndexToIns(arr, num) {
+//   return arr.filter(val => num > val).length;
+// }
+// --------------------------------------------------------------------------------------------------------------------
+// function getIndexToIns(arr, num) {
+//   return arr
+//     .concat(num)
+//     .sort((a, b) => a - b)
+//     .indexOf(num);
+// }
+// console.log(getIndexToIns([40, 60], 50)); // 1
+
+// 1️⃣2️⃣Поверніть true, якщо рядок у першому елементі масиву містить усі літери рядка у 
+// другому елементі масиву.
+// Наприклад, ["hello", "Hello"] має повертати true, оскільки всі літери другого рядка наявні 
+// у першому, незважаючи на регістр.
+// function mutation(arr) {
+//   const test = arr[1].toLowerCase();
+//     const target = arr[0].toLowerCase();
+//     for (let i = 0; i < test.length; i++) {
+//       if (target.indexOf(test[i]) < 0) return false;
+//     }
+//     return true;
+//   }
+// --------------------------------------------------------------------------------------------
+// function mutation(arr) {
+//   return arr[1]
+//     .toLowerCase()
+//     .split("")
+//     .every(function(letter) {
+//       return arr[0].toLowerCase().indexOf(letter) !== -1;
+//     });
+// }
+// console.log(mutation(["hello", "hey"])); // false
+
+// 1️⃣3️⃣Напишіть функцію, яка ділить масив (перший аргумент) на групи довжиною size 
+// (другий аргумент) та повертає їх як двовимірний масив.
+// function chunkArrayInGroups(arr, size) {
+//   const newArr = [];
+//   for (let i = 0; i < arr.length; i += size) {
+//     newArr.push(arr.slice(i, i + size));
+//   }
+//   return newArr;
+// }
+// ------------------------------------------------------------------------------------
+// function chunkArrayInGroups(arr, size) {
+//   const newArr = [];
+//   while (arr.length > 0) {
+//     newArr.push(arr.splice(0, size));
+//   }
+//   return newArr;
+// }
+// console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));   // [["a", "b"], ["c", "d"]]
+
+// 1️⃣4️⃣
+
+// 1️⃣5️⃣
+
+// 1️⃣6️⃣
 
 
 
@@ -1289,7 +1522,6 @@ console.log(addFriend(user, 'Pete')); // ['Sam', 'Kira', 'Tomo', 'Pete']
 // };
 // const carrot = new Vegetable('carrot');
 // console.log(carrot.name); // carrot
-
 
 
 
