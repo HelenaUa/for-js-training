@@ -1000,6 +1000,10 @@
 // console.log(count);
 
 
+// 🌞🌞🌞🌞🌞Модуль 5.🌞🌞🌞🌞🌞 
+// 🌻Модуль 5 (Урок 1). Ключове слово this. Прототипи та класи
+
+
 
 
 
@@ -1465,11 +1469,129 @@
 // }
 // console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));   // [["a", "b"], ["c", "d"]]
 
-// 1️⃣4️⃣
+// ❗❗❗Об'єктноорієнтоване програмування (ООП)
+// 1️⃣Повторне використання коду з ключовим словом this
+// let duck = {
+//   name: "Aflac",
+//   numLegs: 2,
+//   sayName: function() {return "The name of this duck is " + this.name + ".";}
+// };
 
-// 1️⃣5️⃣
+// 2️⃣Визначення функції-конструктора
+// Ось приклад конструктора:
+// function Bird() {
+//   this.name = "Albert";
+//   this.color = "blue";
+//   this.numLegs = 2;
+// }
 
-// 1️⃣6️⃣
+// 3️⃣Використання конструктора для створення об’єктів
+// function Bird() {
+//   this.name = "Albert";
+//   this.color  = "blue";
+//   this.numLegs = 2;
+// }
+// let blueBird = new Bird();
+
+// 4️⃣Розширення конструкторів для отримання аргументів
+// function Bird(name, color) {
+//   this.name = name;
+//   this.color = color;
+//   this.numLegs = 2;
+// }
+
+// 5️⃣Перевірка конструктора об’єкта за допомогою instanceof
+// let Bird = function(name, color) {
+//   this.name = name;
+//   this.color = color;
+//   this.numLegs = 2;
+// }
+// let crow = new Bird("Alexis", "black");
+// crow instanceof Bird;
+
+// 6️⃣Додайте власні властивості canary до масиву ownProps.
+// function Bird(name) {
+//   this.name = name;
+//   this.numLegs = 2;
+// }
+// let canary = new Bird("Tweety");
+// let ownProps = [];
+// for (let property in canary) {
+//   if (canary.hasOwnProperty(property)) {
+//     ownProps.push(property);
+//   }
+// }
+
+// 7️⃣Ітерація через усі властивості
+// function Bird(name) {
+//   this.name = name;  //own property
+// }
+// Bird.prototype.numLegs = 2; // prototype property
+// let duck = new Bird("Donald");
+// // Ось так ви додаєте власні властивості duck до масиву ownProps і 
+// // властивості prototype до масиву prototypeProps:
+// let ownProps = [];
+// let prototypeProps = [];
+// for (let property in duck) {
+//   if(duck.hasOwnProperty(property)) {
+//     ownProps.push(property);
+//   } else {
+//     prototypeProps.push(property);
+//   }
+// }
+// console.log(ownProps); // ["name"]
+// console.log(prototypeProps); // ["numLegs"]
+
+// 8️⃣Властивість конструктора
+// Напишіть функцію joinDogFraternity, яка приймає параметр candidate та, 
+// використовуючи властивість constructor, поверніть true, якщо кандидатом 
+// є Dog, в іншому випадку поверніть false.
+// function Dog(name) {
+//   this.name = name;
+// }
+// function joinDogFraternity(candidate) {
+// if (candidate.constructor === Dog) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+// console.log(joinDogFraternity(Dog)); // false
+
+// 9️⃣Зміна прототипа на новий об’єкт
+// Додайте властивість numLegs і два методи (eat() й describe()) до прототипу Dog, 
+// встановивши prototype на новий об’єкт.
+// function Dog(name) {
+//   this.name = name;
+// }
+// Dog.prototype = {
+// numLegs: 4, 
+//   eat: function() {
+//     console.log("nom nom nom");
+//   },
+//   describe: function() {
+//     console.log("My name is " + this.name);
+//   }
+// };
+
+// 🔟Не забудьте налаштувати властивості конструктора під час зміни прототипу
+// не забудьте власноруч визначити властивість constructor під час налаштування прототипу
+// function Dog(name) {
+//   this.name = name;
+// }
+// Dog.prototype = {
+//  constructor: Dog,
+//   numLegs: 4,
+//   eat: function() {
+//     console.log("nom nom nom");
+//   },
+//   describe: function() {
+//     console.log("My name is " + this.name);
+//   }
+// };
+
+
+
 
 
 
