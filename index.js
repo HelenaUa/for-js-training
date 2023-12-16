@@ -1003,7 +1003,47 @@
 // 🌞🌞🌞🌞🌞Модуль 5.🌞🌞🌞🌞🌞 
 // 🌻Модуль 5 (Урок 1). Ключове слово this. Прототипи та класи
 
+// Калькулятор. Створіть об'єкт calculator з трьома методами
+// const calculator = {
+//   read(a, b) {
+//     this.a = a;
+//     this.b = b;
+//     return `Values set: a = ${this.a}, b = ${this.b}`;
+//   },
+//   add() {
+//     return (this.a ?? 0) + (this.b ?? 0);
+//   }, 
+//   mult() {
+//     return (this.a ?? 1) * (this.b ?? 1);
+//   }
+// }
+// calculator.read(3); 
+// console.log(calculator.add()); // 3
+// console.log(calculator.mult()); // 3
+// console.log(calculator.read(3, 2)); // Values set: a = 3, b = 2
+// console.log(calculator.add()); // 5
+// console.log(calculator.mult()); // 6
 
+// function foo(a, b) {
+//   console.log(this, a, b);
+// }
+// foo.call({}, 5, 10); 
+// foo.apply({}, [6, 11]); 
+// foo.bind({}, 7, 12); 
+
+// const objA = {
+//   name: 'A',
+//   myAge(a, b) {
+//     console.log(this, a, b);
+//   }
+// }
+// const objB = {
+//   name: 'B',
+//   myAge: objA.myAge
+// }
+// const fromBackEnd = [1, 2];
+// const str = objA.myAge.call(objB, ...fromBackEnd);
+// console.log(str);
 
 
 
