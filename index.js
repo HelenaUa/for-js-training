@@ -1630,6 +1630,189 @@
 //   }
 // };
 
+// 1️⃣1️⃣Прототип об’єкта
+// Використайте isPrototypeOf, щоб перевірити beagle prototype.
+// function Dog(name) {
+//   this.name = name;
+// }
+// let beagle = new Dog("Snoopy");
+// Dog.prototype.isPrototypeOf(beagle); // true
+
+// 1️⃣2️⃣Ланцюг прототипів
+// function Dog(name) {
+//   this.name = name;
+// }
+// let beagle = new Dog("Snoopy");
+// Dog.prototype.isPrototypeOf(beagle);  // показує правильно
+// Object.prototype.isPrototypeOf(Dog.prototype);
+
+// 1️⃣3️⃣Успадкування поведінки від супертипу
+// function Animal() { }
+// Animal.prototype = {
+//   constructor: Animal,
+//   eat: function() {
+//     console.log("nom nom nom");
+//   }
+// };
+// let duck = Object.create(Animal.prototype); 
+// let beagle = Object.create(Animal.prototype); 
+
+// 1️⃣4️⃣Налаштування прототипу дочірнього елемента на екземпляр батьківського елемента
+// Змініть код, щоб екземпляри Dog успадковували від Animal.
+// function Animal() { }
+// Animal.prototype = {
+//   constructor: Animal,
+//   eat: function() {
+//     console.log("nom nom nom");
+//   }
+// };
+// function Dog() { }
+// Dog.prototype = Object.create(Animal.prototype);
+// let beagle = new Dog();
+// beagle.eat(); // nom nom nom
+
+// 1️⃣5️⃣Скидання властивості успадкованого конструктора
+// Змініть код, щоб duck.constructor та beagle.constructor повернули відповідні конструктори.
+// function Animal() { }
+// function Bird() { }
+// function Dog() { }
+// Bird.prototype = Object.create(Animal.prototype);
+// Dog.prototype = Object.create(Animal.prototype);
+// let duck = new Bird();
+// let beagle = new Dog();
+// // ----------------------------------------------
+// Bird.prototype.constructor = Bird;
+// duck.constructor;
+// Dog.prototype.constructor = Dog;
+// beagle.constructor
+
+// 1️⃣6️⃣Додавання методів після успадкування
+// function Animal() { }
+// Animal.prototype.eat = function() { console.log("nom nom nom"); };
+// function Dog() { }
+// Dog.prototype = Object.create(Animal.prototype);
+// Dog.prototype.constructor = Dog;
+// Dog.prototype.bark = function() {
+//   console.log("Woof!");
+// };
+// let beagle = new Dog();
+// beagle.eat(); // nom nom nom
+// beagle.bark(); // Woof!
+
+// 1️⃣7️⃣Перевизначення успадкованих методів
+// Перевизначте метод fly() для Penguin, щоб він повернув рядок Alas, this is a flightless bird.
+// function Bird() { }
+// Bird.prototype.fly = function() { return "I am flying!"; };
+// function Penguin() { }
+// Penguin.prototype = Object.create(Bird.prototype);
+// Penguin.prototype.constructor = Penguin;
+// // ----------------------------------------------------------
+// Penguin.prototype.fly = function() {
+//   return "Alas, this is a flightless bird.";
+// };
+// // -----------------------------------------------------------
+// let penguin = new Penguin();
+// console.log(penguin.fly()); // Alas, this is a flightless bird.
+
+// 1️⃣8️⃣Міксини, щоб налаштувати спільну поведінку між непов’язаними об’єктами
+// Створіть міксин під назвою glideMixin, який визначає метод під назвою glide. 
+// Потім використайте glideMixin, щоб надати bird та boat можливість плавно рухатись.
+// let bird = {
+//   name: "Donald",
+//   numLegs: 2
+// };
+// let boat = {
+//   name: "Warrior",
+//   type: "race-boat"
+// };
+// // ---------------------------------
+// let glideMixin = function(obj) {
+//   obj.glide = function() {
+//     console.log("glide");
+//   }
+// };
+// glideMixin(bird);
+// glideMixin(boat);
+
+// 1️⃣9️⃣Замикання, щоб захистити властивості об’єкта від зовнішніх змін
+// Змініть оголошення weight у функції Bird, щоб вона стала приватною змінною. 
+// Потім створіть метод getWeight, який поверне значення weight 15.
+// function Bird() {
+//   let weight = 15;
+//     this.getWeight = function() { 
+//       return weight;
+//     };
+// }
+
+// 2️⃣0️⃣Вираз негайно викликаної функції (IIFE)
+// Перепишіть функцію makeNest та видаліть виклик, щоб це був анонімний 
+// вираз негайно викликаної функції (IIFE).
+// function makeNest() {
+//   console.log("A cozy nest is ready");
+// }
+// makeNest();
+// // -------------------------------------
+// (function () {
+//   console.log("A cozy nest is ready");
+// }) (); // A cozy nest is ready
+
+// 2️⃣1️⃣IIFE для створення модуля
+// Створіть модуль під назвою funModule, щоб загорнути два міксини (isCuteMixin та singMixin). 
+// funModule має повернути об’єкт.
+// let isCuteMixin = function(obj) {
+//   obj.isCute = function() {
+//     return true;
+//   };
+// };
+// let singMixin = function(obj) {
+//   obj.sing = function() {
+//     console.log("Singing to an awesome tune");
+//   };
+// };
+// // -------------------------------------------
+// let funModule = (function () {
+//   return {
+//     isCuteMixin: function(obj) {
+//       obj.isCute = function() {
+//         return true;
+//       };
+//     },
+//     singMixin: function(obj) {
+//       obj.sing = function() {
+//         console.log("Singing to an awesome tune");
+//       };
+//     }
+//   }
+// })();
+
+// ❗❗❗Функційне програмування
+// Функційне програмування — це стиль програмування, у якому рішення є простими ізольованими 
+// функціями без будь-яких побічних ефектів, які виходять за межі області дії 
+// функції: INPUT -> PROCESS -> OUTPUT
+// 1️⃣Функції prepareTea та getTea вже визначені у редакторі коду. Викличте функцію getTea, 
+// щоб отримати 40 чашок чаю для команди, і збережіть їх у змінній tea4TeamFCC.
+// Функція, що повертає рядок, який представляє чашку зеленого чаю
+// const prepareTea = () => 'greenTea';
+// /*
+// Беручи до уваги функцію (що відповідає типу чаю) та потрібну кількість чашок, наступна 
+// функція повертає масив рядків (кожен позначає чашку із певним видом чаю).
+// */
+// const getTea = (numOfCups) => {
+//   const teaCups = [];
+//   for(let cups = 1; cups <= numOfCups; cups += 1) {
+//     const teaCup = prepareTea();
+//     teaCups.push(teaCup);
+//   }
+//   return teaCups;
+// };
+// // --------------------------------------------------
+// const tea4TeamFCC = getTea(40); 
+// console.log(tea4TeamFCC);
+
+
+
+
+
 
 
 
