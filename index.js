@@ -1809,6 +1809,930 @@
 // const tea4TeamFCC = getTea(40); 
 // console.log(tea4TeamFCC);
 
+// 2️⃣Передача аргументів для уникнення зовнішньої залежності у функції
+// Напишіть функцію incrementer так, щоб вона приймала аргумент, а потім 
+// повертала значення, збільшене на один.
+// Глобальна змінна
+// let fixedValue = 4;
+// function incrementer(fixedValue) {
+// return fixedValue +1;
+// }
+
+// 3️⃣Рефакторинг глобальних змінних поза функціями
+// Перепишіть код так, щоб глобальний масив bookList не змінювався всередині жодної 
+// з функцій. Функція add повинна додати наданий bookName в кінець переданого масиву 
+// та повернути новий масив (список). Функція remove повинна видалити наданий bookName 
+// з переданого масиву.
+// Глобальна змінна
+// const bookList = ["The Hound of the Baskervilles", 
+//                   "On The Electrodynamics of Moving Bodies", 
+//                   "Philosophiæ Naturalis Principia Mathematica", 
+//                   "Disquisitiones Arithmeticae"];
+// // --------------------------------------------------------------
+// function add(arr, bookName) {
+// let newArr = [...arr]; 
+//   newArr.push(bookName); 
+//   return newArr;
+// }
+// // ---------------------------------------------------------------
+// function remove(arr, bookName) {
+// let newArr = [...arr];
+// if (newArr.indexOf(bookName) >= 0) {
+//     newArr.splice(newArr.indexOf(bookName), 1);
+//     return newArr; 
+// }
+// }
+// ------------------------------------------------------------------
+// function add(list, bookName) {
+//   return [...list, bookName];
+// }
+// //  ------------------------------------------------------------------
+// function remove(list, bookName) {
+//   return list.filter(book => book !== bookName);
+// }
+// console.log(add(bookList, "A Brief History of Time")); // ["The Hound of the Baskervilles", "On The Electrodynamics of Moving Bodies", "Philosophiæ Naturalis Principia Mathematica", "Disquisitiones Arithmeticae", "A Brief History of Time"]
+// console.log(bookList); // не повинен змінюватись
+
+// 4️⃣Використання методу map для отримання даних з масиву
+// const watchList = [
+//   {
+//     "Title": "Inception",
+//     "Year": "2010",
+//     "Rated": "PG-13",
+//     "Released": "16 Jul 2010",
+//     "Runtime": "148 min",
+//     "Genre": "Action, Adventure, Crime",
+//     "Director": "Christopher Nolan",
+//     "Writer": "Christopher Nolan",
+//     "Actors": "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page, Tom Hardy",
+//     "Plot": "A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.",
+//     "Language": "English, Japanese, French",
+//     "Country": "USA, UK",
+//     "Awards": "Won 4 Oscars. Another 143 wins & 198 nominations.",
+//     "Poster": "http://ia.media-imdb.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
+//     "Metascore": "74",
+//     "imdbRating": "8.8",
+//     "imdbVotes": "1,446,708",
+//     "imdbID": "tt1375666",
+//     "Type": "movie",
+//     "Response": "True"
+//   },
+//   {
+//     "Title": "Interstellar",
+//     "Year": "2014",
+//     "Rated": "PG-13",
+//     "Released": "07 Nov 2014",
+//     "Runtime": "169 min",
+//     "Genre": "Adventure, Drama, Sci-Fi",
+//     "Director": "Christopher Nolan",
+//     "Writer": "Jonathan Nolan, Christopher Nolan",
+//     "Actors": "Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow",
+//     "Plot": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+//     "Language": "English",
+//     "Country": "USA, UK",
+//     "Awards": "Won 1 Oscar. Another 39 wins & 132 nominations.",
+//     "Poster": "http://ia.media-imdb.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SX300.jpg",
+//     "Metascore": "74",
+//     "imdbRating": "8.6",
+//     "imdbVotes": "910,366",
+//     "imdbID": "tt0816692",
+//     "Type": "movie",
+//     "Response": "True"
+//   },
+//   {
+//     "Title": "The Dark Knight",
+//     "Year": "2008",
+//     "Rated": "PG-13",
+//     "Released": "18 Jul 2008",
+//     "Runtime": "152 min",
+//     "Genre": "Action, Adventure, Crime",
+//     "Director": "Christopher Nolan",
+//     "Writer": "Jonathan Nolan (screenplay), Christopher Nolan (screenplay), Christopher Nolan (story), David S. Goyer (story), Bob Kane (characters)",
+//     "Actors": "Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine",
+//     "Plot": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.",
+//     "Language": "English, Mandarin",
+//     "Country": "USA, UK",
+//     "Awards": "Won 2 Oscars. Another 146 wins & 142 nominations.",
+//     "Poster": "http://ia.media-imdb.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg",
+//     "Metascore": "82",
+//     "imdbRating": "9.0",
+//     "imdbVotes": "1,652,832",
+//     "imdbID": "tt0468569",
+//     "Type": "movie",
+//     "Response": "True"
+//   },
+//   {
+//     "Title": "Batman Begins",
+//     "Year": "2005",
+//     "Rated": "PG-13",
+//     "Released": "15 Jun 2005",
+//     "Runtime": "140 min",
+//     "Genre": "Action, Adventure",
+//     "Director": "Christopher Nolan",
+//     "Writer": "Bob Kane (characters), David S. Goyer (story), Christopher Nolan (screenplay), David S. Goyer (screenplay)",
+//     "Actors": "Christian Bale, Michael Caine, Liam Neeson, Katie Holmes",
+//     "Plot": "After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from the corruption that Scarecrow and the League of Shadows have cast upon it.",
+//     "Language": "English, Urdu, Mandarin",
+//     "Country": "USA, UK",
+//     "Awards": "Nominated for 1 Oscar. Another 15 wins & 66 nominations.",
+//     "Poster": "http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg",
+//     "Metascore": "70",
+//     "imdbRating": "8.3",
+//     "imdbVotes": "972,584",
+//     "imdbID": "tt0372784",
+//     "Type": "movie",
+//     "Response": "True"
+//   },
+//   {
+//     "Title": "Avatar",
+//     "Year": "2009",
+//     "Rated": "PG-13",
+//     "Released": "18 Dec 2009",
+//     "Runtime": "162 min",
+//     "Genre": "Action, Adventure, Fantasy",
+//     "Director": "James Cameron",
+//     "Writer": "James Cameron",
+//     "Actors": "Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang",
+//     "Plot": "A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+//     "Language": "English, Spanish",
+//     "Country": "USA, UK",
+//     "Awards": "Won 3 Oscars. Another 80 wins & 121 nominations.",
+//     "Poster": "http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg",
+//     "Metascore": "83",
+//     "imdbRating": "7.9",
+//     "imdbVotes": "876,575",
+//     "imdbID": "tt0499549",
+//     "Type": "movie",
+//     "Response": "True"
+//   }
+// ];
+// // const ratings = watchList.map(({ Title: title, imdbRating: rating }) => ({title, rating}));
+// // -----------------------------------------------------------------------------------------
+// const ratings = watchList.map(item => ({
+//   title: item["Title"],
+//   rating: item["imdbRating"]
+// }));
+// console.log(JSON.stringify(ratings));
+
+// 5️⃣Імплементація map на прототипі
+// Напишіть свій Array.prototype.myMap(), який поводиться як Array.prototype.map(). Ви не повинні 
+// використовувати вбудований метод map. Доступ до екземпляра Array можна отримати у методі myMap 
+// за допомогою this.
+// Array.prototype.myMap = function(callback) {
+//   const newArray = [];
+//   for(let i = 0; i < this.length; i++) {
+//     newArray.push(callback(this[i], i, this))
+//   }
+//   return newArray;
+// };
+// // ---------------------------------------2------------------------------------------------------
+// Array.prototype.myMap = function (callback) {
+//   const newArray = [];
+//   this.forEach((element, index, originalArr) =>
+//     newArray.push(callback(element, index, originalArr))
+//   );
+//   return newArray;
+// };
+
+// 6️⃣Використання методу filter для отримання даних з масиву
+// Змінна watchList містить масив об’єктів з інформацією про декілька фільмів. Використайте 
+// комбінацію filter та map на watchList, щоб отримати новий масив об’єктів із ключами title 
+// та rating. Новий масив повинен містити лише ті об’єкти, де imdbRating більше або дорівнює 8.0.
+//  Зверніть увагу, що значення rating збережено в об’єкті як рядки і, можливо, вам знадобиться 
+//  конвертувати їх у числа, щоб виконати математичні операції.
+// const watchList = [
+//   {
+//     "Title": "Inception",
+//     "Year": "2010",
+//     "Rated": "PG-13",
+//     "Released": "16 Jul 2010",
+//     "Runtime": "148 min",
+//     "Genre": "Action, Adventure, Crime",
+//     "Director": "Christopher Nolan",
+//     "Writer": "Christopher Nolan",
+//     "Actors": "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page, Tom Hardy",
+//     "Plot": "A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.",
+//     "Language": "English, Japanese, French",
+//     "Country": "USA, UK",
+//     "Awards": "Won 4 Oscars. Another 143 wins & 198 nominations.",
+//     "Poster": "http://ia.media-imdb.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
+//     "Metascore": "74",
+//     "imdbRating": "8.8",
+//     "imdbVotes": "1,446,708",
+//     "imdbID": "tt1375666",
+//     "Type": "movie",
+//     "Response": "True"
+//   },
+//   {
+//     "Title": "Interstellar",
+//     "Year": "2014",
+//     "Rated": "PG-13",
+//     "Released": "07 Nov 2014",
+//     "Runtime": "169 min",
+//     "Genre": "Adventure, Drama, Sci-Fi",
+//     "Director": "Christopher Nolan",
+//     "Writer": "Jonathan Nolan, Christopher Nolan",
+//     "Actors": "Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow",
+//     "Plot": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+//     "Language": "English",
+//     "Country": "USA, UK",
+//     "Awards": "Won 1 Oscar. Another 39 wins & 132 nominations.",
+//     "Poster": "http://ia.media-imdb.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SX300.jpg",
+//     "Metascore": "74",
+//     "imdbRating": "8.6",
+//     "imdbVotes": "910,366",
+//     "imdbID": "tt0816692",
+//     "Type": "movie",
+//     "Response": "True"
+//   },
+//   {
+//     "Title": "The Dark Knight",
+//     "Year": "2008",
+//     "Rated": "PG-13",
+//     "Released": "18 Jul 2008",
+//     "Runtime": "152 min",
+//     "Genre": "Action, Adventure, Crime",
+//     "Director": "Christopher Nolan",
+//     "Writer": "Jonathan Nolan (screenplay), Christopher Nolan (screenplay), Christopher Nolan (story), David S. Goyer (story), Bob Kane (characters)",
+//     "Actors": "Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine",
+//     "Plot": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.",
+//     "Language": "English, Mandarin",
+//     "Country": "USA, UK",
+//     "Awards": "Won 2 Oscars. Another 146 wins & 142 nominations.",
+//     "Poster": "http://ia.media-imdb.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg",
+//     "Metascore": "82",
+//     "imdbRating": "9.0",
+//     "imdbVotes": "1,652,832",
+//     "imdbID": "tt0468569",
+//     "Type": "movie",
+//     "Response": "True"
+//   },
+//   {
+//     "Title": "Batman Begins",
+//     "Year": "2005",
+//     "Rated": "PG-13",
+//     "Released": "15 Jun 2005",
+//     "Runtime": "140 min",
+//     "Genre": "Action, Adventure",
+//     "Director": "Christopher Nolan",
+//     "Writer": "Bob Kane (characters), David S. Goyer (story), Christopher Nolan (screenplay), David S. Goyer (screenplay)",
+//     "Actors": "Christian Bale, Michael Caine, Liam Neeson, Katie Holmes",
+//     "Plot": "After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from the corruption that Scarecrow and the League of Shadows have cast upon it.",
+//     "Language": "English, Urdu, Mandarin",
+//     "Country": "USA, UK",
+//     "Awards": "Nominated for 1 Oscar. Another 15 wins & 66 nominations.",
+//     "Poster": "http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg",
+//     "Metascore": "70",
+//     "imdbRating": "8.3",
+//     "imdbVotes": "972,584",
+//     "imdbID": "tt0372784",
+//     "Type": "movie",
+//     "Response": "True"
+//   },
+//   {
+//     "Title": "Avatar",
+//     "Year": "2009",
+//     "Rated": "PG-13",
+//     "Released": "18 Dec 2009",
+//     "Runtime": "162 min",
+//     "Genre": "Action, Adventure, Fantasy",
+//     "Director": "James Cameron",
+//     "Writer": "James Cameron",
+//     "Actors": "Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang",
+//     "Plot": "A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+//     "Language": "English, Spanish",
+//     "Country": "USA, UK",
+//     "Awards": "Won 3 Oscars. Another 80 wins & 121 nominations.",
+//     "Poster": "http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg",
+//     "Metascore": "83",
+//     "imdbRating": "7.9",
+//     "imdbVotes": "876,575",
+//     "imdbID": "tt0499549",
+//     "Type": "movie",
+//     "Response": "True"
+//   }
+// ];
+// const filteredList = watchList
+//   .filter(movie => {
+//     return parseFloat(movie.imdbRating) >= 8.0;
+//   })
+//   .map(movie => {
+//     return {
+//       title: movie.Title,
+//       rating: movie.imdbRating
+//     };
+//   });
+// // ----------- 2 -------------------------------
+// const filteredList = watchList
+//   .filter(movie => movie.imdbRating >= 8.0)
+//   .map(movie => ({ title: movie["Title"], rating: movie["imdbRating"] }));
+// // ------------3--------------------------------
+// const filteredList = watchList
+//   .filter(({ imdbRating }) => imdbRating >= 8.0)
+//   .map(({ Title: title, imdbRating: rating }) => ({ title, rating }));
+// console.log(filteredList); // [ { title: 'Inception', rating: '8.8' },
+//                              // { title: 'Interstellar', rating: '8.6' },
+//                              // { title: 'The Dark Knight', rating: '9.0' },
+//                              // { title: 'Batman Begins', rating: '8.3' } ]
+
+// 7️⃣Імплементація методу filter на прототипі
+// Array.prototype.myFilter = function(callback) {
+//   const newArray = [];
+//   for(let i = 0; i < this.length; i++) {
+//     if (Boolean(callback(this[i], i, this)) === true) {
+//       newArray.push(this[i]);
+//     }
+//   }
+//   return newArray;
+// }
+// // -------------------2---------------------------------
+// Array.prototype.myFilter = function (callback) {
+//   const newArray = [];
+//   for (let i = 0; i < this.length; i++) {
+//     if (callback(this[i], i, this) == true) {
+//       newArray.push(this[i]);
+//     }
+//   }
+//   return newArray;
+// };
+
+// 8️⃣Повернення частини масиву за допомогою методу slice
+// function sliceArray(anim, beginSlice, endSlice) {
+// return anim.slice(beginSlice, endSlice);
+// }
+// const inputAnim = ["Cat", "Dog", "Tiger", "Zebra", "Ant"];
+// sliceArray(inputAnim, 1, 3); // ["Dog", "Tiger"]
+
+// 9️⃣Видалення елементів з масиву за допомогою slice замість splice
+// метод slice не змінює вихідний масив, а повертає новий, який можна зберегти як змінну.
+// метод splice змінює вихідний масив, у якому викликається. 
+// function nonMutatingSplice(cities) {
+//   return cities.splice(0, 3);
+// }
+// console.log(nonMutatingSplice(["Chicago", "Delhi", "Islamabad", "London", "Berlin"])); // ["Chicago", "Delhi", "Islamabad"].
+
+// 🔟Об’єднання двох масивів за допомогою методу concat
+// function nonMutatingConcat(original, attach) {
+// return original.concat(attach);
+// }
+// const first = [1, 2, 3];
+// const second = [4, 5];
+// nonMutatingConcat(first, second); // [1, 2, 3, 4, 5, 6]
+
+// 1️⃣1️⃣Додавання елементів в кінець масиву за допомогою concat замість push
+// concat надає можливість додавати нові елементи в кінець масиву без побічних ефектів.
+// push додає елементи в кінець того масиву, в якому викликаний, тим самим змінюючи його.
+// function nonMutatingPush(original, newItem) {
+//   return original.concat(newItem);
+// }
+// const first = [1, 2, 3];
+// const second = [4, 5];
+// nonMutatingPush(first, second); // [1, 2, 3, 4, 5, 6]
+
+// 1️⃣2️⃣Використання методу reduce для аналізу даних
+// const watchList = [
+//   {
+//     "Title": "Inception",
+//     "Year": "2010",
+//     "Rated": "PG-13",
+//     "Released": "16 Jul 2010",
+//     "Runtime": "148 min",
+//     "Genre": "Action, Adventure, Crime",
+//     "Director": "Christopher Nolan",
+//     "Writer": "Christopher Nolan",
+//     "Actors": "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page, Tom Hardy",
+//     "Plot": "A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.",
+//     "Language": "English, Japanese, French",
+//     "Country": "USA, UK",
+//     "Awards": "Won 4 Oscars. Another 143 wins & 198 nominations.",
+//     "Poster": "http://ia.media-imdb.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
+//     "Metascore": "74",
+//     "imdbRating": "8.8",
+//     "imdbVotes": "1,446,708",
+//     "imdbID": "tt1375666",
+//     "Type": "movie",
+//     "Response": "True"
+//   },
+//   {
+//     "Title": "Interstellar",
+//     "Year": "2014",
+//     "Rated": "PG-13",
+//     "Released": "07 Nov 2014",
+//     "Runtime": "169 min",
+//     "Genre": "Adventure, Drama, Sci-Fi",
+//     "Director": "Christopher Nolan",
+//     "Writer": "Jonathan Nolan, Christopher Nolan",
+//     "Actors": "Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow",
+//     "Plot": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+//     "Language": "English",
+//     "Country": "USA, UK",
+//     "Awards": "Won 1 Oscar. Another 39 wins & 132 nominations.",
+//     "Poster": "http://ia.media-imdb.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SX300.jpg",
+//     "Metascore": "74",
+//     "imdbRating": "8.6",
+//     "imdbVotes": "910,366",
+//     "imdbID": "tt0816692",
+//     "Type": "movie",
+//     "Response": "True"
+//   },
+//   {
+//     "Title": "The Dark Knight",
+//     "Year": "2008",
+//     "Rated": "PG-13",
+//     "Released": "18 Jul 2008",
+//     "Runtime": "152 min",
+//     "Genre": "Action, Adventure, Crime",
+//     "Director": "Christopher Nolan",
+//     "Writer": "Jonathan Nolan (screenplay), Christopher Nolan (screenplay), Christopher Nolan (story), David S. Goyer (story), Bob Kane (characters)",
+//     "Actors": "Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine",
+//     "Plot": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.",
+//     "Language": "English, Mandarin",
+//     "Country": "USA, UK",
+//     "Awards": "Won 2 Oscars. Another 146 wins & 142 nominations.",
+//     "Poster": "http://ia.media-imdb.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg",
+//     "Metascore": "82",
+//     "imdbRating": "9.0",
+//     "imdbVotes": "1,652,832",
+//     "imdbID": "tt0468569",
+//     "Type": "movie",
+//     "Response": "True"
+//   },
+//   {
+//     "Title": "Batman Begins",
+//     "Year": "2005",
+//     "Rated": "PG-13",
+//     "Released": "15 Jun 2005",
+//     "Runtime": "140 min",
+//     "Genre": "Action, Adventure",
+//     "Director": "Christopher Nolan",
+//     "Writer": "Bob Kane (characters), David S. Goyer (story), Christopher Nolan (screenplay), David S. Goyer (screenplay)",
+//     "Actors": "Christian Bale, Michael Caine, Liam Neeson, Katie Holmes",
+//     "Plot": "After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from the corruption that Scarecrow and the League of Shadows have cast upon it.",
+//     "Language": "English, Urdu, Mandarin",
+//     "Country": "USA, UK",
+//     "Awards": "Nominated for 1 Oscar. Another 15 wins & 66 nominations.",
+//     "Poster": "http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg",
+//     "Metascore": "70",
+//     "imdbRating": "8.3",
+//     "imdbVotes": "972,584",
+//     "imdbID": "tt0372784",
+//     "Type": "movie",
+//     "Response": "True"
+//   },
+//   {
+//     "Title": "Avatar",
+//     "Year": "2009",
+//     "Rated": "PG-13",
+//     "Released": "18 Dec 2009",
+//     "Runtime": "162 min",
+//     "Genre": "Action, Adventure, Fantasy",
+//     "Director": "James Cameron",
+//     "Writer": "James Cameron",
+//     "Actors": "Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang",
+//     "Plot": "A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+//     "Language": "English, Spanish",
+//     "Country": "USA, UK",
+//     "Awards": "Won 3 Oscars. Another 80 wins & 121 nominations.",
+//     "Poster": "http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg",
+//     "Metascore": "83",
+//     "imdbRating": "7.9",
+//     "imdbVotes": "876,575",
+//     "imdbID": "tt0499549",
+//     "Type": "movie",
+//     "Response": "True"
+//   }
+// ];
+// // -----------------1----------------------------------------------------
+// function getRating(watchList){
+//   const averageRating = watchList
+//     .filter(film => film.Director === "Christopher Nolan")
+//     .map(film => Number(film.imdbRating))
+//     .reduce((sumOfRatings, rating) => sumOfRatings + rating, 0) /
+//   watchList.filter(film => film.Director === "Christopher Nolan").length;
+//   return averageRating;
+// }
+// // -----------------2-----------------------------------------------------
+// // function getRating(watchList) {
+// //   const nolanData = watchList
+// //     .reduce((data, { Director: director, imdbRating: rating }) => {
+// //       if (director === 'Christopher Nolan') {
+// //         data.count++;
+// //         data.sum += Number(rating);
+// //       }
+// //       return data;
+// //     }, { sum: 0, count: 0 });
+// //   const averageRating = nolanData.sum / nolanData.count;
+// //   return averageRating;
+// // }
+// console.log(getRating(watchList)); // 8.675
+
+// 1️⃣3️⃣Використання функцій вищого порядку (map, filter та reduce) для розв’язання складних задач
+// Функція повинна повертати новий масив, який містить квадрати лише цілих натуральних чисел (десяткові 
+// числа не є цілими числами), коли до неї передається масив дійсних чисел.
+// const squareList = arr => {
+// let newArr = arr.filter(num => (num > 0) && (Number.isInteger(num))).map(num => num*num)
+//   return newArr;
+// };
+// const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
+// console.log(squaredIntegers); // [25, 9]
+
+// 1️⃣4️⃣Сортування масиву в алфавітному порядку за допомогою методу sort
+// function alphabeticalOrder(arr) {
+//   // -------------1--------------------------
+//   // return arr.sort(function(a, b) {
+//   //   return a === b ? 0 : a < b ? -1 : 1;
+//   // });
+//   // --------------2-------------------------
+//   return arr.sort((a, b) => a.localeCompare(b));
+// }
+// console.log(alphabeticalOrder(["a", "d", "c", "a", "z", "g"])); //  ['a', 'a', 'c', 'd', 'g', 'z']
+
+// 1️⃣5️⃣Повернення відсортованого масиву без зміни вихідного масиву
+// sort змінює порядок елементів у вихідному масиві. Іншими словами, він змінює масив.
+// Використайте метод sort у функції nonMutatingSort, щоб відсортувати елементи масиву у 
+// порядку зростання. Функція повинна повернути новий масив і не змінювати змінну globalArray.
+// const globalArray = [5, 6, 3, 2, 9];
+// function nonMutatingSort(arr) {
+// return [].concat(arr).sort((a, b) => a-b);
+// }
+// console.log(nonMutatingSort(globalArray)); // [2, 3, 5, 6, 9]
+// console.log(globalArray); // [5, 6, 3, 2, 9]
+
+//1️⃣6️⃣Розділення рядка на масив за допомогою методу split
+// function splitify(str) {
+// return str.split(/\W/);
+// }
+// console.log(splitify("Hello World,I-am code")); // ['Hello', 'World', 'I', 'am', 'code']
+
+// 1️⃣7️⃣Об’єднання масиву в рядок за допомогою методу join
+// function sentensify(str) {
+// return str.split(/\W/).join(" ");
+// }
+// console.log(sentensify("May-the-force-be-with-you")); // "May the force be with you"
+
+
+// 1️⃣8️⃣Застосування функційного програмування для перетворення рядків на URL-слаги
+// function urlSlug(title) {
+//   return title
+//     .trim()
+//     .split(/\s+/)
+//     .map(world => world.toLowerCase())
+//     .join("-");
+//   }
+// // --------------------------2-------------------------------------------------
+// // function urlSlug(title) {
+// //   return title
+// //     .toLowerCase()
+// //     .trim()
+// //     .split(/\s+/)
+// //     .join("-");
+// // }
+// console.log(urlSlug("A Mind Needs Books Like A Sword Needs A Whetstone")); // a-mind-needs-books-like-a-sword-needs-a-whetstone
+
+// 1️⃣9️⃣Використання методу every для перевірки всіх елементів на відповідність критеріям
+// Метод every працює з масивами, щоб перевірити, чи кожен елемент проходить певний тест. Він 
+// повертає булеве значення true, якщо всі значення відповідають критеріям або false, якщо навпаки.
+// function checkPositive(arr) {
+// return arr.every(num => num > 0);
+// }
+// console.log(checkPositive([1, 2, 3, -4, 5])); // false
+
+// 2️⃣0️⃣Використання методу some для перевірки будь-яких елементів на відповідність критеріям
+// Метод some працює з масивами, щоб перевірити, чи будь-який елемент проходить певний тест. Він 
+// повертає булеве значення true, якщо значення відповідає критеріям або false, якщо навпаки.
+// function checkPositive(arr) {
+// return arr.some(num => num > 0);
+// }
+// console.log(checkPositive([1, 2, 3, -4, 5])); // true
+
+// 2️⃣1️⃣Вступ до каррінгу та часткового застосування
+// Арність функції — це кількість необхідних аргументів. Каррінгом функції називають перетворення 
+// функції з n-ною арністю у n-ну кількість функцій з арністю 1.
+// Каррінг корисний для програми, якщо ви не можете надати всі аргументи до функції одночасно. 
+// Ви можете зберегти кожен виклик функції у змінній, що матиме посилання на повернуту функцію, 
+// яка прийме наступний аргумент (щойно він буде доступний).
+// function add(x) {
+// return function(y) {
+//     return function(z) {
+//       return x + y + z;
+//     }
+//   }
+// }
+// console.log(add(10)(20)(30)); // 60
+
+// ❗❗❗Написання алгоритмів середньої складності
+// 1️⃣Сума всіх чисел в діапазоні
+// function sumAll(arr) {
+//   let max = Math.max(arr[0], arr[1]);
+//   let min = Math.min(arr[0], arr[1]);
+//   let sumBetween = 0;
+//   for (let i = min; i <= max; i++) {
+//     sumBetween += i;
+//   }
+//    return sumBetween;
+//  }
+// --------------2----------------------------
+// function sumAll(arr) {
+//   let sumBetween = 0;
+//   for (let i = Math.min(...arr); i <= Math.max(...arr); i++) {
+//     sumBetween += i;
+//   }
+//   return sumBetween;
+// }
+//  console.log(sumAll([1, 4])); // 10
+
+// 2️⃣Різниця між двома масивами
+// function diffArray(arr1, arr2) {
+//   const newArr = [];
+//   function onlyInFirst(first, second) {
+//     for (let i = 0; i < first.length; i++) {
+//       if (second.indexOf(first[i]) === -1) {
+//         newArr.push(first[i]);
+//       }
+//     }
+//   }
+//   onlyInFirst(arr1, arr2);
+//   onlyInFirst(arr2, arr1);
+//   return newArr;
+// }
+// ------------------------2--------------------------------------
+// function diffArray(arr1, arr2) {
+//   return arr1
+//     .concat(arr2)
+//     .filter(item => !arr1.includes(item) || !arr2.includes(item));
+// }
+// ------------------------3---------------------------------------
+// function diffArray(arr1, arr2) {
+//   return [...diff(arr1, arr2), ...diff(arr2, arr1)];
+//   function diff(a, b) {
+//     return a.filter(item => b.indexOf(item) === -1);
+//   }
+// }
+// console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5])); // [4]
+
+// 3️⃣Пошук та знищення
+// Вам буде надано початковий масив як перший аргумент до функції destroyer, який 
+// супроводжується одним або більше аргументами. Видаліть всі елементи з початкового масиву, 
+// які мають таке ж значення, як ці аргументи. Функція має приймати невизначену кількість 
+// аргументів; таку функцію часто називають варіадичною. Ви можете отримати доступ до додаткових 
+// аргументів, додавши залишковий параметр до визначення функції або використавши об’єкт arguments.
+// function destroyer(arr, ...valsToRemove) {
+//   return arr.filter(elem => !valsToRemove.includes(elem));
+// }
+// console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3)); // [1, 1]
+
+// 4️⃣Де ж ти, Ромео?
+// Напишіть функцію, яка проглядає масив об’єктів (перший аргумент) і повертає масив усіх об’єктів, 
+// які мають однакові пари імен та значень (другий аргумент). Кожна пара імен та значень вихідного 
+// об'єкта повинна бути в об’єкті з колекції, якщо він необхідний у повернутому масиві.
+// Наприклад,
+// whatIsInAName([{ first: "Romeo", last: "Montague" }, 
+//                { first: "Mercutio", last: null }, 
+//                { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }) 
+//               // [{ first: "Tybalt", last: "Capulet" }]
+// function whatIsInAName(collection, source) {
+//   const sourceKeys = Object.keys(source);
+//   // filter the collection
+//   return collection.filter(obj => {
+//     for (let i = 0; i < sourceKeys.length; i++) {
+//       if (obj[sourceKeys[i]] !== source[sourceKeys[i]]) {
+//         return false;
+//       }
+//     }
+//     return true;
+//   });
+// }
+// --------------------2-------------------------------------
+// function whatIsInAName(collection, source) {
+//   const sourceKeys = Object.keys(source);
+//   console.log(sourceKeys);
+//   return collection
+//     .filter(obj => sourceKeys
+//       .every(key => obj[key] === source[key]));
+// }
+// console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, 
+//                { first: "Mercutio", last: null }, 
+//                { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }) );
+
+// 5️⃣Шашличний регістр
+// Перетворіть рядок в шашличний регістр. У шашличному регістрі 
+// всі-слова-в-нижньому-регістрі-та-розділені-рискою.
+// function spinalCase(str) {
+//   return str
+//     .split(/\s|_|(?=[A-Z])/)
+//     .join("-")
+//     .toLowerCase();
+// }
+// console.log(spinalCase('This Is Spinal Tap')); // this-is-spinal-tap
+
+// 6️⃣Поросяча латина
+// Поросяча латина — це спосіб шифрування англійських слів. Правила такі:
+// - Якщо слово починається з приголосного звуку, то перший приголосний або 
+// сполучення приголосних переміщуються в кінець слова і додається ay.
+// - Якщо слово починається з голосного звуку, то вкінці просто додається way.
+// Перекладіть поданий рядок на поросячу латину. Відомо, що при вводі всі рядки 
+// будуть складатись з англійських слів у нижньому регістрі.
+// function translatePigLatin(str) {
+//   let consonantRegex = /^[^aeiou]+/;
+//   let myConsonants = str.match(consonantRegex);
+//   return myConsonants !== null
+//     ? str
+//         .replace(consonantRegex, "")
+//         .concat(myConsonants)
+//         .concat("ay")
+//     : str.concat("way");
+// }
+// --------------2------------------------------------------------------
+// function translatePigLatin(str) {
+//   if (str.match(/^[aeiou]/)) return str + "way";
+//   const consonantCluster = str.match(/^[^aeiou]+/)[0];
+//   return str.substring(consonantCluster.length) + consonantCluster + "ay";
+// }
+// ---------------3------------------------------------------------------
+// function translatePigLatin(str, charPos = 0) {
+//   return ['a', 'e', 'i', 'o', 'u'].includes(str[0])
+//     ? str + (charPos === 0 ? 'way' : 'ay')
+//     : charPos === str.length
+//       ? str + 'ay'
+//       : translatePigLatin(str.slice(1) + str[0], charPos + 1);
+// }
+// console.log(translatePigLatin("consonant"));
+
+// 7️⃣Пошук та заміна
+// function myReplace(str, before, after) {
+//   let index = str.indexOf(before);
+//   if (str[index] === str[index].toUpperCase()) {
+//     after = after.charAt(0).toUpperCase() + after.slice(1);
+//   } else {
+//     after = after.charAt(0).toLowerCase() + after.slice(1);
+//   }
+//   str = str.replace(before, after);
+//   return str;
+// }
+// ---------------------2--------------------------------------------------
+// function myReplace(str, before, after) {
+//   const strArr = str.split(" ");
+//   const wordToReplace = strArr.filter(item => item === before);
+//   const replacement = wordToReplace[0] === wordToReplace[0].toUpperCase()
+//     ? after[0].toUpperCase() + after.slice(1)
+//     : after[0].toLowerCase() + after.slice(1);
+//   return strArr.map(item => (item === before ? replacement : item)).join(" ");
+// }
+// console.log(myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped")); // A quick brown fox leaped over the lazy dog
+
+// 8️⃣Формування пар ДНК
+// function pairElement(str) {
+//   const matchWithBasePair = function(char) {
+//     switch (char) {
+//       case "A":
+//         return ["A", "T"];
+//       case "T":
+//         return ["T", "A"];
+//       case "C":
+//         return ["C", "G"];
+//       case "G":
+//         return ["G", "C"];
+//     }
+//   };
+//   const pairs = [];
+//   for (let i = 0; i < str.length; i++) {
+//     pairs.push(matchWithBasePair(str[i]));
+//   }
+//   return pairs;
+// }
+// // -----------------------2-------------------------------------------
+// function pairElement(str) {
+//   const pairs = {
+//     A: "T",
+//     T: "A",
+//     C: "G",
+//     G: "C"
+//   };
+//   return str
+//     .split("")
+//     .map(x => [x, pairs[x]]);
+// }
+// console.log(pairElement("GCG")); // [["G", "C"], ["C","G"], ["G", "C"]]
+
+// 9️⃣Пропущені літери
+// Знайдіть пропущену літеру в переданому діапазоні літер та поверніть її.
+// Якщо у діапазоні наявні всі літери, поверніть undefined.
+// function fearNotLetter(str) {
+//   for (let i = 0; i < str.length; i++) {
+//     const charCode = str.charCodeAt(i);
+//     if (charCode !== str.charCodeAt(0) + i) {
+//       return String.fromCharCode(charCode - 1);
+//     }
+//   }
+//   return undefined;
+// }
+// ------------------2---------------------------
+// function fearNotLetter(str) {
+//   for (let i = 1; i < str.length; i++) {
+//     if (str.charCodeAt(i) - str.charCodeAt(i - 1) > 1) {
+//       return String.fromCharCode(str.charCodeAt(i - 1) + 1);
+//     }
+//   }
+// }
+// console.log(fearNotLetter("abce")); // d
+
+// 🔟Сортування масиву
+// function uniteUnique(arr) {
+//   const args = [...arguments];
+//   const result = [];
+//   for (let i = 0; i < args.length; i++) {
+//     for (let j = 0; j < args[i].length; j++) {
+//       if (!result.includes(args[i][j])) {
+//         result.push(args[i][j]);
+//       }
+//     }
+//   }
+//   return result;
+// }
+// console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1])); // [1, 3, 2, 5, 4]
+
+// 1️⃣1️⃣Перетворення символів для HTML
+// Перетворіть символи &, <, >, " (подвійні лапки) та ' (апостроф) у відповідне позначення
+// символів для HTML.
+// function convertHTML(str) {
+//   var temp = str.split("");
+//   for (var i = 0; i < temp.length; i++) {
+//     switch (temp[i]) {
+//       case "<":
+//         temp[i] = "&lt;";
+//         break;
+//       case "&":
+//         temp[i] = "&amp;";
+//         break;
+//       case ">":
+//         temp[i] = "&gt;";
+//         break;
+//       case '"':
+//         temp[i] = "&quot;";
+//         break;
+//       case "'":
+//         temp[i] = "&apos;";
+//         break;
+//     }
+//   }
+//   temp = temp.join("");
+//   return temp;
+// }
+// console.log(convertHTML("Dolce & Gabbana")); // Dolce &amp; Gabbana
+
+// 1️⃣2️⃣Сума всіх непарних чисел Фібоначчі
+// Маючи додатнє ціле число num, поверніть суму всіх непарних чисел Фібоначчі, 
+// які менші чи дорівнюють num. Першими двома числами в послідовності Фібоначчі 
+// є 0 та 1. Кожне додаткове число у послідовності є сумою двох попередніх чисел. 
+// Першими сімома числами в послідовності Фібоначчі є 1, 1, 2, 3, 5 і 8.
+// function sumFibs(num) {
+//   let prevNumber = 0;
+//   let currNumber = 1;
+//   let result = 0;
+//   while (currNumber <= num) {
+//     if (currNumber % 2 !== 0) {
+//       result += currNumber;
+//     }
+//     currNumber += prevNumber;
+//     prevNumber = currNumber - prevNumber;
+//   }
+//   return result;
+// }
+// console.log(sumFibs(4)); // 5
+
+// 1️⃣3️⃣Сума всіх простих чисел
+// Просте число — це ціле число, яке більше за 1 та має два дільники: 1 і 
+// саме число. Наприклад, 2 є простим числом, оскільки воно ділиться лише 
+// на 1 і 2. І навпаки, 4 не є простим числом, оскільки воно ділиться на 1, 2 і 4.
+// Перепишіть sumPrimes таким чином, щоб поверталася сума всіх простих чисел, які 
+// менші або дорівнюють num.
+// function sumPrimes(num) {
+//   let primes = [];
+//   for (let i = 2; i <= num; i++) {
+//     if (primes.every((prime) => i % prime !== 0))
+//       primes.push(i);
+//   }
+//   return primes.reduce((sum, prime) => sum + prime, 0);
+// }
+// ------------------------2--------------------------------
+function sumPrimes(num) {
+  function isPrime(num) {
+    const sqrt = Math.sqrt(num);
+    console.log(sqrt);
+    for (let i = 2; i <= sqrt; i++) {
+      if (num % i === 0)
+        return false;
+    }
+    return true;
+  }
+  let sum = 0;
+  for (let i = 2; i <= num; i++) {
+    if (isPrime(i))
+      sum += i;
+  }
+  return sum;
+}
+console.log(sumPrimes(10)); // 17
 
 
 
