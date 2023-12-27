@@ -2715,24 +2715,388 @@
 //   return primes.reduce((sum, prime) => sum + prime, 0);
 // }
 // ------------------------2--------------------------------
-function sumPrimes(num) {
-  function isPrime(num) {
-    const sqrt = Math.sqrt(num);
-    console.log(sqrt);
-    for (let i = 2; i <= sqrt; i++) {
-      if (num % i === 0)
-        return false;
-    }
-    return true;
-  }
-  let sum = 0;
-  for (let i = 2; i <= num; i++) {
-    if (isPrime(i))
-      sum += i;
-  }
-  return sum;
-}
-console.log(sumPrimes(10)); // 17
+// function sumPrimes(num) {
+//   function isPrime(num) {
+//     const sqrt = Math.sqrt(num);
+//     for (let i = 2; i <= sqrt; i++) {
+//       if (num % i === 0)
+//         return false;
+//     }
+//     return true;
+//   }
+//   let sum = 0;
+//   for (let i = 2; i <= num; i++) {
+//     if (isPrime(i))
+//       sum += i;
+//   }
+//   return sum;
+// }
+// console.log(sumPrimes(10)); // 17
+
+// 1️⃣4️⃣Найменше спільне кратне
+// function smallestCommons(arr) {
+//   const [min, max] = arr.sort((a, b) => a - b);
+//   const numberDivisors = max - min + 1;
+//   let upperBound = 1;
+//   for (let i = min; i <= max; i++) {
+//     upperBound *= i;
+//   }
+//   for (let multiple = max; multiple <= upperBound; multiple += max) {
+//     let divisorCount = 0;
+//     for (let i = min; i <= max; i++) {
+//       if (multiple % i === 0) {
+//         divisorCount += 1;
+//       }
+//     }
+//     if (divisorCount === numberDivisors) {
+//       return multiple;
+//     }
+//   }
+// }
+// console.log(smallestCommons([1, 5])); // 60
+
+// 1️⃣5️⃣Облиште
+// Переберіть масив arr та вилучіть кожен елемент, починаючи з першого елемента 
+// (індекс 0), допоки функція func не поверне true, коли ітерований елемент пройде крізь.
+// Потім поверніть решту масиву, якщо умову виконано. В іншому випадку arr має повертатися 
+// у вигляді порожнього масиву.
+// function dropElements(arr, func) {
+//   while (arr.length > 0 && !func(arr[0])) {
+//     arr.shift();
+//   }
+//   return arr;
+// }
+// // --------------------------------2------------------------------------------
+// function dropElements(arr, func) {
+//   return arr.length > 0 && !func(arr[0])
+//     ? (dropElements(arr.slice(1), func))
+//     : arr;
+// }
+// console.log(dropElements([1, 2, 3, 4], function(n) {return n >= 3})); // [3, 4]
+
+// 1️⃣6️⃣Нездоланна сила
+// Вирівняйте вкладений масив. Ви повинні врахувати різні рівні вкладення.
+// function steamrollArray(arr) {
+//   const flattenedArray = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (Array.isArray(arr[i])) {
+//       flattenedArray.push(...steamrollArray(arr[i]));
+//     } else {
+//       flattenedArray.push(arr[i]);
+//     }
+//   }
+//   return flattenedArray;
+// };
+// console.log(steamrollArray([1, [2], [3, [[4]]]])); // [1, 2, 3, 4]
+
+// 1️⃣7️⃣Бінарні агенти
+// Поверніть переданий бінарний рядок, перекладений англійською мовою.
+// Бінарний рядок буде розділений пробілом.
+// function binaryAgent(str) {
+//   return String.fromCharCode(
+//     ...str.split(" ").map(function(char) {
+//       return parseInt(char, 2);
+//     })
+//   );
+// }
+// // ------------------2----------------------
+// function binaryAgent(str) {
+//   var biString = str.split(" ");
+//   var uniString = [];
+//   for (var i = 0; i < biString.length; i++) {
+//     uniString.push(String.fromCharCode(parseInt(biString[i], 2)));
+//   }
+//   return uniString.join("");
+// }
+// console.log(binaryAgent(
+//   "01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111"
+// )); // Aren't bonfires fun!?
+
+// 1️⃣8️⃣Усе вірно
+// Перевірте, чи предикат (другий аргумент) є істинним для усіх елементів колекції (перший аргумент).
+// function truthCheck(collection, pre) {
+//   let counter = 0;
+//   for (let c in collection) {
+//     if (collection[c].hasOwnProperty(pre) && Boolean(collection[c][pre])) {
+//       counter++;
+//     }
+//   }
+//   return counter == collection.length;
+// }
+// -----------------------------2----------------------------------------------
+// function truthCheck(collection, pre) {
+//   return collection.every(obj => obj[pre]);
+// }
+// console.log(truthCheck([{ name: "Quincy", role: "Founder", isBot: false }, { name: "Naomi", role: "", isBot: false }, { name: "Camperbot", role: "Bot", isBot: true }], "isBot")); // false
+
+// 1️⃣9️⃣Додаткові аргументи
+// Створіть функцію, яка додає два аргументи. Якщо вказано лише один аргумент, то поверніть функцію, 
+// яка очікує один аргумент і повертає суму.
+// Наприклад, addTogether(2, 3) має повертати 5, а addTogether(2) має повертати функцію.
+// Якщо жоден з аргументів не є дійсним числом, поверніть undefined.
+// function addTogether() {
+//   const [first, second] = arguments;
+//   if (typeof (first) === "number") {
+//     if (typeof (second) === "number") return first + second;
+//     if (arguments.length === 1) return (second) => addTogether(first, second);
+//   }
+// }
+// console.log(addTogether(2,3)); // 5
+// console.log(addTogether(2, "3")); // undefined
+
+// 2️⃣0️⃣Створіть людину
+// Заповніть конструктор об’єкта, використовуючи наведені нижче методи:
+// getFirstName()
+// getLastName()
+// getFullName()
+// setFirstName(first)
+// setLastName(last)
+// setFullName(first, last)
+// const Person = function(first, last) {
+//   let firstName = first;
+//   let lastName  = last;
+//   //---------------------------------
+//   this.getFirstName = function() {
+//     return firstName;
+//   };
+//   //----------------------------------
+//   this.getLastName = function() {
+//     return lastName;
+//   };
+//   //-----------------------------------------------------
+//   this.getFullName = function() {
+//     return this.getFirstName() + " " + this.getLastName();
+//   };
+//   //-------------------------------------------------------
+//   this.setFirstName = function(first) {
+//     return firstName = first;
+//   };
+//   //-------------------------------------------------------
+//   this.setLastName = function(last) {
+//     return lastName = last;
+//   };
+//   //-------------------------------------------------------
+//   this.setFullName = function(first, last) {
+//     this.setFirstName(first);
+//     this.setLastName(last);
+//     return this.getFullName();
+//   };
+// };
+// const bob = new Person("Bob", "Ross");
+// console.log(bob.getFullName()); // Bob Ross
+
+//2️⃣1️⃣Карта орбіт
+// Згідно з третім законом Кеплера, орбітальним періодом  T
+// двох точкових мас, що обертаються навколо одна одної по круговій або еліптичній орбіті, є:
+// T=2πa3μ−−−√ 
+// a — велика піввісь орбіти
+// μ=GM — стандартний гравітаційний параметр
+// G — гравітаційна стала,
+// M — маса масивнішого тіла.
+// Поверніть новий масив, який трансформує середню висоту елементів у їхні орбітальні 
+// періоди (у секундах).
+// Масив міститиме об’єкти у форматі {name: 'name', avgAlt: avgAlt}.
+// Значення потрібно округлити до найближчого цілого числа. Тіло, навколо якого потрібно 
+// обертатися, — Земля.
+// Радіус Землі становить 6367.4447 кілометрів, а значення GM Землі — 398600.4418 км3с-2.
+// function orbitalPeriod(arr) {
+//   const GM = 398600.4418;
+//   const earthRadius = 6367.4447;
+//   const a = 2 * Math.PI;
+//   const newArr = [];
+//   const getOrbPeriod = function(obj) {
+//     const c = Math.pow(earthRadius + obj.avgAlt, 3);
+//     const b = Math.sqrt(c / GM);
+//     const orbPeriod = Math.round(a * b);
+//     return {name: obj.name, orbitalPeriod: orbPeriod};
+//   };
+//   for (let elem in arr) {
+//     newArr.push(getOrbPeriod(arr[elem]));
+//   }
+//   return newArr;
+// }
+// console.log(orbitalPeriod([{ name: "sputnik", avgAlt: 35873.5553 }])); // [{name: "sputnik", orbitalPeriod: 86400}]
+
+// ❗❗❗Проєкти «Алгоритми JavaScript та структури даних»
+//1️⃣Перевірка паліндрому
+// Поверніть true, якщо заданий рядок є паліндромом. В іншому випадку, поверніть false.
+// function palindrome(str) {
+//  const alphanumericStr = str.replace(/[\W_]/g, '');
+//  const lowercaseStr = alphanumericStr.toLowerCase();
+//  const reversedStr = lowercaseStr.split('').reverse().join('');
+//  return lowercaseStr === reversedStr;
+// }
+// console.log(palindrome("eye")); // true
+
+//2️⃣Конвертер римських чисел
+// Перетворіть подане число в римське число.
+// Всі римські числа повинні бути написаними великими літерами.
+// function convertToRoman(num) {
+//   const romanNumerals = {
+//     M: 1000,
+//     CM: 900,
+//     D: 500,
+//     CD: 400,
+//     C: 100,
+//     XC: 90,
+//     L: 50,
+//     XL: 40,
+//     X: 10,
+//     IX: 9,
+//     V: 5,
+//     IV: 4,
+//     I: 1,
+//   };
+//   let result = '';
+//   for (let key in romanNumerals) {
+//     while (num >= romanNumerals[key]) {
+//       result += key;
+//       num -= romanNumerals[key];
+//     }
+//   }
+//   return result;
+// }
+// console.log(convertToRoman(36)); // XXXVI
+
+//3️⃣Шифр Цезаря
+// Одним з найпростіших і найпоширеніших шифрів є шифр Цезаря, також відомий 
+// як шифр зсуву. У шифрі зсуву значення літери зміщене на встановлену кількість.
+// Часто використовують шифр ROT13, який зміщує літеру на 13 місць. Таким чином, 
+// A ↔ N, B ↔ O і так далі.
+// Напишіть функцію, яка приймає закодований рядок ROT13 як вхідні дані та повертає декодований.
+// Всі літери повинні бути великими. Не замінюйте неалфавітні символи (пробіли, знаки пунктуації), 
+// але перенесіть їх.
+// function rot13(str) {
+//   const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+//   return str
+//     .split('')
+//     .map(char => {
+//       const isLetter = /[A-Z]/.test(char);
+//       if (isLetter) {
+//         const index = alphabet.indexOf(char);
+//         const newIndex = (index + 13) % 26;
+//         return alphabet[newIndex];
+//       } else {
+//         return char;
+//       }
+//     })
+//     .join('');
+// }
+// console.log(rot13("SERR PBQR PNZC")); // FREE CODE CAMP
+
+//4️⃣Валідатор мобільного номера
+// Поверніть true, якщо наданий рядок виглядає як дійсний мобільний номер США.
+// Користувач може заповнити поле форми в будь-який спосіб, тільки якщо він має формат 
+// дійсного номера США. Нижче наведені приклади дійсних форматів номерів США 
+// (для інших варіантів посилайтесь на тести, подані нижче):
+// 555-555-5555
+// (555)555-5555
+// (555) 555-5555
+// 555 555 5555
+// 5555555555
+// 1 555 555 5555
+// У цьому завданні вам буде надано рядок (наприклад, 800-692-7753 або 8oo-six427676;laskdjf). 
+// Ваше завдання — підтвердити або відхилити мобільний номер США на основі будь-якої комбінації 
+// форматів, наданих вище. Код зони нумерації є обов’язковим. Якщо надано телефонний код країни, 
+// то ви повинні підтвердити, що телефонним кодом країни є 1. Поверніть true, якщо рядок є 
+// дійсним мобільним номером США; в іншому випадку поверніть false.
+// function telephoneCheck(str) {
+//   const phoneRegex = /^(1\s?)?(\(\d{3}\)|\d{3})([\s\-]?)\d{3}([\s\-]?)\d{4}$/;
+//   return phoneRegex.test(str);
+// }
+// console.log(telephoneCheck("555-555-5555")); // true
+
+//5️⃣Касовий апарат
+// Розробіть функцію касового апарату checkCashRegister(), яка приймає ціну покупки як 
+// перший аргумент (price), оплату як другий аргумент (cash) та суму готівки в касі як 
+// третій аргумент (cid).
+// cid — це 2D масив, який містить список доступного обігу.
+// Функція checkCashRegister() завжди повинна повертати об’єкт з ключем status та ключем change.
+// Поверніть {status: "INSUFFICIENT_FUNDS", change: []}, якщо сума готівки в касі менша за здачу, 
+// або ви не можете віддати здачу.
+// Поверніть {status: "CLOSED", change: [...]} з сумою в касі як значення ключа change, якщо воно 
+// дорівнює здачі.
+// В іншому випадку, поверніть {status: "OPEN", change: [...]} зі здачею в монетах і банкнотах, 
+// в порядку від найбільшої до найменшої, як значення ключа change.
+// Грошовий обіг	Сума
+// Пенні	$0.01 (ПЕННІ)
+// Нікель	$0.05 (НІКЕЛЬ)
+// Дайм	$0.1 (ДАЙМ)
+// Чверть	$0.25 (ЧВЕРТЬ)
+// Долар	$1 (ОДИН)
+// П’ять доларів	$5 (П’ЯТЬ)
+// Десять доларів	$10 (ДЕСЯТЬ)
+// Двадцять доларів	$20 (ДВАДЦЯТЬ)
+// Сто доларів	$100 (СТО)
+// Подивіться нижче на приклад масиву з сумою в касі:
+// [
+//   ["PENNY", 1.01],
+//   ["NICKEL", 2.05],
+//   ["DIME", 3.1],
+//   ["QUARTER", 4.25],
+//   ["ONE", 90],
+//   ["FIVE", 55],
+//   ["TEN", 20],
+//   ["TWENTY", 60],
+//   ["ONE HUNDRED", 100]
+// ]
+// function checkCashRegister(price, cash, cid) {
+//   const denomination = [10000, 2000, 1000, 500, 100, 25, 10, 5, 1,];
+//   function transaction(price, cash, cid) {
+//     let changeNeeded = (cash - price) * 100;
+//     let moneyProvided = [
+//     ["ONE HUNDRED", 0], 
+//     ["TWENTY", 0], 
+//     ["TEN", 0], 
+//     ["FIVE", 0], 
+//     ["ONE", 0], 
+//     ["QUARTER", 0], 
+//     ["DIME", 0], 
+//     ["NICKEL", 0], 
+//     ["PENNY", 0],
+//   ];
+//   let availCash = [...cid].reverse().map(el => [el[0], el[1] * 100]);
+//   let sumOfCash = availCash.reduce((a, b) => (a + b[1]),0) / 100;
+//   if (sumOfCash === changeNeeded / 100) {
+//     return {status: "CLOSED", change: [...cid]};
+//   }
+//   else for (let i = 0; i < availCash.length; i++) {
+//       while (denomination[i] <= changeNeeded && availCash[i][1] > 0) {
+//         moneyProvided[i][1] += denomination[i];
+//         changeNeeded -= denomination[i];
+//         availCash[i][1] -= denomination[i];
+//       }
+//     };
+//     let change = moneyProvided
+//     .map(el => [el[0], el[1] / 100])
+//     .filter(el => el[1] !== 0);
+//     let changeTotal = change.reduce((a, b) => (a + b[1]),0);
+//     if (changeTotal < changeNeeded) {
+//         return {status: "INSUFFICIENT_FUNDS", change: []};
+//     }
+//     return {status: "OPEN", change};
+//   }
+//   let answer = transaction(price, cash, cid);
+//   return answer;
+// };
+// // Приклад виклику функції
+// const result = checkCashRegister(19.5, 20, [
+//   ["PENNY", 1.01],
+//   ["NICKEL", 2.05],
+//   ["DIME", 3.1],
+//   ["QUARTER", 4.25],
+//   ["ONE", 90],
+//   ["FIVE", 55],
+//   ["TEN", 20],
+//   ["TWENTY", 60],
+//   ["ONE HUNDRED", 100]
+// ]);
+// console.log(result); // {status: 'OPEN', change: [[ 'QUARTER', 0.5 ]]}
+
+
+
+
+
 
 
 
