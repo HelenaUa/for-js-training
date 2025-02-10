@@ -1,4 +1,4 @@
-// 🌞🌞🌞🌞🌞Модуль 1.🌞🌞🌞🌞🌞  
+// 🌞🌞🌞🌞🌞Модуль 1.🌞🌞🌞🌞🌞
 // 🌻 Модуль 1 (Урок 1). Змінні та типи.
 
 // const value = prompt('Java Script');
@@ -9,20 +9,22 @@
   // }
   // console.log(value);
 
-  // const userInput = Number(prompt('Введи число'));
-  // console.log(typeof userInput);
-  // if(!userInput) {
-  //   console.log('це нуль');
-  // } else if(userInput > 0) {
-  //   console.log('yes');
-  // } else {
-  //   console.log('no');
-  // };
+// const userInput = prompt('Введи число');
+// const parsedInput = Number(userInput);
+// if (isNaN(parsedInput)) {
+//   console.log('це не число');
+// } else if (parsedInput === 0) {
+//   console.log('це нуль');
+// } else if (parsedInput > 0) {
+//   console.log('yes');
+// } else {
+//   console.log('no');
+// }
 
   // const userInput = Number(prompt('Введи число'));
   // console.log(userInput % 2 ? 'не парне' : 'парне');
 
-  // if(!0) {
+  // if(!0) { // за допомогою ! робимо true в if
   //   console.log('00000')
   // } else {
   //   console.log('0')
@@ -43,12 +45,12 @@
   //   link += '/';
   // };
   // console.log(link);
-
-  // let link = 'https://my-site.com/about';
-  // if(!link.endsWith('/')) {
-  //   link += '/'
-  // };
-  // console.log(link);
+  
+  let link = 'https://my-site.com/about';
+  if(!link.endsWith('/')) {
+    link += '/'
+  };
+  console.log(link);
 
   // let link = 'https://my-site.com/about';
   // if(!link.endsWith('/') && link.includes('my-site')) {
@@ -125,6 +127,94 @@
   //     console.log(i);
   //   }
   // }
+  
+// let a = 15;
+// if (true) {
+//   let a = 1;
+//     a = 25;
+// }
+// console.log(a);
+
+// const myArray = [1, 'Hello', true, [1, 2, 3]];
+// for (let i = 0; i < myArray.length; i += 1) {
+//   const item = myArray[i];
+//   if (Array.isArray(item)) {
+//     for (let j = 0; j < item.length; j += 1) {
+//       console.log(item[j])
+//     }
+//     continue;
+//   }
+//   console.log(myArray[i])
+// };
+// console.log(Array.isArray(myArray));
+// myArray.push();
+
+// const fruits = ['🍅', '🍎', '🍓', '🍐', '🍌'];
+// for (let i = 0; i < fruits.length; i += 1) {
+//   console.log(`${i+1} - ${fruits[i]}`);
+// }
+
+// const fruits = ['🍅', '🍎', '🍓', '🍐', '🍌'];
+// for (let i = 0, n = 1; i < fruits.length; i += 1, n +=1 ) {
+//   console.log(`${n} - ${fruits[i]}`);
+// }
+
+// const names = 'Bob,Max,Dilan,Artem';
+// const phones = '11111,22222,33333,44444';
+// const namesArr = names.split(',');
+// const phonesArr = phones.split(',');
+// // console.log(namesArr);
+// for (let i = 0; i < namesArr.length, i < phonesArr.length; i += 1){
+//   console.log(`${namesArr[i]} - ${phonesArr[i]}`)
+// }
+
+// const string = 'Welcome to the future';
+// const arr = string.split(' ');
+// arr.pop();
+// arr.shift();
+// const result = arr.join(' ');
+// const result1 = string.split(' ').slice(1, -1).join(' ');
+// console.log(result); // to the
+// console.log(result1); // to the
+
+// ---------------------------------------------------
+// const langs = ['php', 'js', 'ruby', 'c++', 'haskel'];
+// // for (let i = 1; i < langs.length; i++) {
+// //   if (langs[0] > langs[i]) {
+// //     const result = langs.splice(i, 1)[0];
+// //     langs.unshift(result);
+// //   }
+// // }
+// // console.log(langs); //  ['c++', 'haskel', 'js', 'php', 'ruby']
+// // Реалізація сортування бульбашкою
+// for (let i = 0; i < langs.length; i++) {
+//   for (let j = 0; j < langs.length - 1 - i; j++) {
+//     if (langs[j] > langs[j + 1]) {
+//       // Міняємо місцями елементи, якщо вони не в порядку
+//       const temp = langs[j];
+//       langs[j] = langs[j + 1];
+//       langs[j + 1] = temp;
+//     }
+//   }
+// }
+// console.log(langs); //  ['c++', 'haskel', 'js', 'php', 'ruby']
+// console.log(langs.sort()); //  ['c++', 'haskel', 'js', 'php', 'ruby']
+
+// const numbers = [2, 15, 4, 57, 1, 63];
+// let min = numbers[0];
+// for (const number of numbers) {
+//   if (number < min) {
+//     min = number;
+//   }
+// }
+// console.log(min); // 1
+
+
+// let value = 1;
+// let test = value;
+// value += 10;
+// console.log(value);
+// console.log(test);
 
 // const myArray = [];
 // let i = 5;
@@ -253,6 +343,197 @@
 //   console.log(min);
 
 // 🌻Модуль 2 (Урок 2). Функції.
+
+// Функції
+// let a = 10;
+// function foo() {
+//   a = 45;
+// }
+// foo();
+// console.log(a); // 45
+
+// let a = 10;
+// function foo(a) {
+//   a = 45;
+// }
+// foo(a); // or foo();
+// console.log(a); // 10
+
+// const test = [1, 2, 3];
+// function foo(arr) {
+//   // let arr = test; 
+//   arr.splice(0, 1); 
+// }
+// foo(test);
+// console.log(test); // [2, 3]
+
+// function foo() {
+//   let max;
+//   for (const num of arguments) {
+//     if (typeof num === "number") {
+//       max = num;
+//       break;
+//     }
+//   }
+//   for (const num of arguments) {
+//     if (typeof num === 'number') {
+//         if (num > max) {
+//           max = num;
+//         } 
+//     } else {
+//       max = foo(...num)
+//     }
+//   }
+//   return max;
+// }
+// console.log(foo(1, 2, 3, [1, 9, [200]])); // 200
+
+// function formatTime(minutes) {
+//   const hours = Math.floor(minutes / 60);
+//   minutes = Math.floor(minutes % 60);
+//   return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`; 
+// }
+// console.log(formatTime(70)); // "01:10"
+// console.log(formatTime(450)); // "07:30"
+// console.log(formatTime(1441)); // "24:01"
+
+// function getExtremeElements(array) {
+//   return [array[0], array[array.length - 1]];
+//   // const first = array.slice(0, 1);
+//   // const second = array.slice(array.length - 1, array.length);
+//   // return first.concat(second); 
+// }
+// console.log(getExtremeElements([1, 2, 3, 4, 5])); // [1, 5]
+// console.log(getExtremeElements(["Earth", "Mars", "Venus"])); // ["Earth", "Venus"]
+
+// function splitMessage(message, delimiter) {
+//   let words;
+//   words = message.split(delimiter);
+//   return words;
+// }
+// console.log(splitMessage("Mango hurries to the train", " ")); //  ["Mango", "hurries", "to", "the", "train"]
+// console.log(splitMessage("Mango", "")); // ["M", "a", "n", "g", "o"]
+
+// function calculateEngravingPrice(message, pricePerWord) {
+//   const arr = message.split(' ');
+//   return arr.length * pricePerWord;
+// }
+// console.log(calculateEngravingPrice("JavaScript is in my blood", 10)) // 50
+// console.log(calculateEngravingPrice("JavaScript is in my blood", 20)) // 100
+
+// function makeStringFromArray(array, delimiter) {
+//   let string;
+//   string = array.join(delimiter)
+//   return string;
+// }
+// console.log(makeStringFromArray(["Mango", "hurries", "to", "the", "train"], " ")) // "Mango hurries to the train"
+
+// function slugify(title) {
+//   return title.toLowerCase().split(' ').join('-');
+// }
+// console.log(slugify("Arrays for begginers")) // "arrays-for-begginers"
+
+// function makeArray(firstArray, secondArray, maxLength) {
+//   const jointArray = firstArray.concat(secondArray);
+//   return jointArray.slice(0, maxLength);
+// }
+// console.log(makeArray(["Mango", "Poly"], ["Ajax", "Chelsea"], 3)) // ["Mango", "Poly", "Ajax"]
+
+// function calculateTotal(number) {
+//   let sum = 0;
+//   for (let i = 1; i <= number; i++) {
+//     sum = sum + i;
+//   }
+//   return sum;
+// }
+// console.log(calculateTotal(3)); // 6
+
+// function calculateTotalPrice(order) {
+//   let total = 0;
+//   for (let i = 0; i < order.length; i += 1) {
+//     total = total + order[i];
+//   }
+//   return total;
+// }
+// console.log(calculateTotalPrice([12, 85, 37, 4])); // 138
+
+// function findLongestWord(string) {
+//   let longestWord = '';
+//   const arr = string.split(' ');
+//   for (let i = 0; i < arr.length; i += 1) {
+//     if (arr[i].length > longestWord.length) {
+//       longestWord = arr[i];
+//    }
+//   }
+//   return longestWord;
+// }
+// console.log(findLongestWord("Google do a roll")); // Google
+// console.log(findLongestWord('May the force be with you')); // force
+
+// function createArrayOfNumbers(min, max) {
+//   const numbers = [];
+//   for (let i = min; i <= max; i += 1) {
+//     numbers.push(i);
+//   }
+//   return numbers;
+// }
+// console.log(createArrayOfNumbers(1, 3)); // [1, 2, 3]
+
+// function filterArray(numbers, value) {
+//   const newArray = [];
+//   for (let i = 0; i < numbers.length; i++) {
+//     if (numbers[i] > value) {
+//       newArray.push(numbers[i]);
+//     }
+//   }
+//   return newArray;
+// }
+// console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
+// console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
+
+// function getCommonElements(array1, array2) {
+//   const newArray = [];
+//   for (let i = 0; i < array1.length; i += 1) {
+//     if (array2.includes(array1[i])) {
+//       newArray.push(array1[i])
+//     }
+//   } 
+//   return newArray;
+// }
+// console.log(getCommonElements([1, 2, 3], [2, 4])); // [2]
+
+// function getEvenNumbers(start, end) {
+//   const arr = [];
+//   for (let i = start; i <= end; i += 1) {
+//     if (i % 2 === 0) {
+//       arr.push(i);
+//     }
+//   }
+//   return arr;
+// }
+// console.log(getEvenNumbers(2, 5)); // [2, 4]
+
+// function findNumber(start, end, divisor) {
+//   let number;
+//   for (let i = start; i < end; i += 1) {
+//     if (i % divisor === 0) {
+//       return number = i;
+//     }
+//   }
+//   return number;
+// }
+// console.log(findNumber(2, 6, 5)); // 5
+
+// function includes(array, value) {
+//   for (let i = 0; i < array.length; i += 1) {
+//     if (array[i] === value) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
+// console.log(includes([1, 2, 3, 4, 5], 3)); // true
+
 
 // let sum = 0;
 // function addSum(num) {
@@ -466,7 +747,10 @@
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze
 
+// 
+
 // const user = {
+//   score: falseconst user = {
 //   score: false
 // }
 // if('score' in user) {
@@ -474,9 +758,6 @@
 // } else {
 //   console.log('no')
 // }
-
-// const user = {
-//   score: false
 // }
 // if(user.hasOwnProperty('score')) {
 //   console.log('yes')
@@ -521,7 +802,369 @@
 // }
 // console.log(sum);
 
+// const apartment = {
+//   descr: "Spacious apartment in the city center",
+//   rating: 4,
+//   price: 2153,
+// };
+// const keys = [];
+// const values = [];
+// for (const key in apartment) {
+//   if (apartment.hasOwnProperty(key)) { // просто для прикладу, тут воно не потрібно
+//     keys.push(key);
+//     values.push(apartment[key]);
+//   }
+// }
+// console.log(keys); // ["descr", "rating", "price"]
+// console.log(values); // ["Spacious apartment in the city center", 4, 2153]
+
+// function countProps(object) {
+//   // let propCount = 0;
+//   // for (const key in object) {
+//   //   if (object.hasOwnProperty(key)) {
+//   //     propCount += 1;
+//   //   }
+//   // }
+//   // return propCount;
+//   // ---------------------------------------------------
+//   return Object.keys(object).length;
+// }
+// console.log(countProps({ name: "Mango", age: 2 })); // 2
+
+// function countProps(object) {
+//  let propCount = 0;
+//   for (const key of Object.keys(object)) {
+//     propCount += 1;
+//   }
+//   return propCount;
+// }
+// console.log(countProps({ name: "Mango", age: 2 })); // 2
+
+// function countTotalSalary(salaries) {
+//   let totalSalary = 0;
+//   for (const value of Object.values(salaries)) {
+//     totalSalary += value;
+//   }
+//   return totalSalary;
+// }
+// console.log(countTotalSalary({ mango: 100, poly: 150, alfred: 80 })); // 330
+
+// const colors = [
+//   { hex: "#f44336", rgb: "244,67,54" },
+//   { hex: "#2196f3", rgb: "33,150,243" },
+//   { hex: "#4caf50", rgb: "76,175,80" },
+//   { hex: "#ffeb3b", rgb: "255,235,59" },
+// ];
+// const hexColors = [];
+// const rgbColors = [];
+// for (const color of colors) {
+//   hexColors.push(color.hex);
+//   rgbColors.push(color.rgb)
+// }
+// console.log(hexColors); // ["#f44336", "#2196f3", "#4caf50", "#ffeb3b"] 
+// console.log(rgbColors); // ["244,67,54", "33,150,243", "76,175,80", "255,235,59"]
+
+// const products = [
+//   { name: "Radar", price: 1300, quantity: 4 },
+//   { name: "Scanner", price: 2700, quantity: 3 },
+//   { name: "Droid", price: 400, quantity: 7 },
+//   { name: "Grip", price: 1200, quantity: 9 },
+// ];
+// function getProductPrice(productName) {
+//   for (const product of products) {
+//     if (productName === product.name) {
+//       return product.price
+//     }
+//   }
+//   return null;
+// }
+// console.log(getProductPrice("Radar")); // 1300
+// console.log(getProductPrice("Grip")); // 1200
+// console.log(getProductPrice("Scanner")); // 2700
+// console.log(getProductPrice("Droid")); // 400
+// console.log(getProductPrice("Engine")); // null
+//------------------------------------------------
+// function getAllPropValues(propName) {
+//   const allValue = [];
+//   for (const value of products) {
+//     if (value.hasOwnProperty(propName)) {
+//       for (const key in value) {
+//         if (key === propName) {
+//            allValue.push(value[propName]);
+//         }
+//       }
+//     }
+//   }
+//   return allValue;
+// }
+// console.log(getAllPropValues("name")); // ["Radar", "Scanner", "Droid", "Grip"]
+// console.log(getAllPropValues("quantity")); // [4, 3, 7, 9]
+// console.log(getAllPropValues("price")); // [1300, 2700, 400, 1200]
+// console.log(getAllPropValues("category")); // []
+//----------------------------------------------------------------------------------
+// function calculateTotalPrice(productName) {
+//   // let total = 0;
+//   // for (const value of products) {
+//   //   for (const key in value) {
+//   //     if (value.name === productName) {
+//   //     return total = value.price * value.quantity 
+//   //   }
+//   //   }
+//   // }
+//   // return total;
+// //------------------------------------------------------------------------------------
+//   // let prices = 0;
+//   // for (let product of products) {
+//   //   const key = Object.keys(product);
+//   //   if (productName === product.name) {
+//   //     prices = product.price * product.quantity;
+//   //   }
+//   // }
+//   // return prices;
+// }
+// console.log(calculateTotalPrice("Blaster")); // 0
+// console.log(calculateTotalPrice("Radar")); // 5200
+
+// const highTemperatures = {
+//   yesterday: 28,
+//   today: 26,
+//   tomorrow: 33,
+// };
+// const { yesterday, today, tomorrow } = highTemperatures; // деструктуризація об'єкта
+// console.log(today); // 26
+// const {
+//   yesterday,
+//   icon = "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg", 
+//   today,
+//   tomorrow } = highTemperatures; // додаємо дефолтне значення
+
+// const apartment = {
+//   descr: "Spacious apartment in the city center",
+//   rating: 4,
+//   price: 2153,
+// };
+// const values = [];
+// const keys = Object.keys(apartment);
+// for (const key of keys) {
+//   values.push(apartment[key]);  
+// }
+// console.log(keys); // ["descr", "rating", "price"]
+// console.log(values); // ["Spacious apartment in the city center", 4, 2153]
+
+// const colors = [
+//   { hex: "#f44336", rgb: "244,67,54" },
+//   { hex: "#2196f3", rgb: "33,150,243" },
+//   { hex: "#4caf50", rgb: "76,175,80" },
+//   { hex: "#ffeb3b", rgb: "255,235,59" },
+// ];
+// const hexColors = [];
+// const rgbColors = [];
+// for (const {hex, rgb} of colors) {
+//   hexColors.push(hex);
+//   rgbColors.push(rgb);
+// }
+// console.log(hexColors); // ["#f44336", "#2196f3", "#4caf50", "#ffeb3b"]
+// console.log(rgbColors); // ["244,67,54", "33,150,243", "76,175,80", "255,235,59"]
+
+// function calculateMeanTemperature(forecast) {
+//   // const todayLow = forecast.today.low;
+//   // const todayHigh = forecast.today.high;
+//   // const tomorrowLow = forecast.tomorrow.low;
+//   // const tomorrowHigh = forecast.tomorrow.high;
+//   //--------------------------------------------------------------------------------------------------------
+//   const {
+//     today: {
+//       low: todayLow,
+//       high: todayHigh
+//     },
+//     tomorrow: {
+//       low: tomorrowLow,
+//       high: tomorrowHigh,
+//     }
+//   } = forecast;
+//   return (todayLow + todayHigh + tomorrowLow + tomorrowHigh) / 4;
+// }
+// console.log(calculateMeanTemperature({ today: {low: 28, high: 32}, tomorrow: {low: 25, high: 29} })); // 28.5
+
+// const bookShelf = {
+//   books: ["The last kingdom", "Haze", "The guardian of dreams"],
+//   updateBook(oldName, newName) {
+//     const index = this.books.indexOf(oldName);
+//     return this.books.splice(index, 1, newName);
+//   },
+// };
+// console.log(bookShelf.updateBook("Haze", "Dungeon chronicles"));
+// console.log(bookShelf.books); // ["The last kingdom", "Dungeon chronicles", "The guardian of dreams"]
+
+// const atTheOldToad = {
+//   potions: [
+//     { name: "Speed potion", price: 460 },
+//     { name: "Dragon breath", price: 780 },
+//     { name: "Stone skin", price: 520 },
+//   ],
+//   // Метод для отримання всього зілля
+//   getPotions() {
+//     return this.potions;
+//   },
+//   // Метод для додавання зілля
+//   addPotion(newPotion) {
+//     for (const potion of this.potions) {
+//       if (potion.name === newPotion.name) {
+//         return `Error! Potion ${newPotion.name} is already in your inventory!`;
+//       }
+//     }
+//     this.potions.push(newPotion);
+//   },
+//    // Метод для додавання зілля
+//   removePotion(potionName) {
+//     for (const potion of this.potions) {
+//       if (potion.name === potionName) {
+//         const potionIndex = this.potions.indexOf(potion);
+//         this.potions.splice(potionIndex, 1);
+//         return;
+//       }
+//     }
+//     return `Potion ${potionName} is not in inventory!`;
+//   },
+//    // Метод для оновлення назви зілля
+//   updatePotionName(oldName, newName) {
+//     for (const potion of this.potions) {
+//       if (potion.name === oldName) {
+//         potion.name = newName
+//         return;
+//       }
+//     }
+//     return `Potion ${oldName} is not in inventory!`;
+//   },
+// };
+// // const atTheOldToad = {
+// //   potions: [
+// //     { name: "Speed potion", price: 460 },
+// //     { name: "Dragon breath", price: 780 },
+// //     { name: "Stone skin", price: 520 },
+// //   ],
+// //   // Метод для отримання всього зілля
+// //   getPotions() {
+// //     return this.potions;
+// //   },
+// //   // Метод для додавання зілля
+// //   addPotion(newPotion) {
+// //     for (const potion of this.potions) {
+// //       if (potion.name === newPotion.name) {
+// //         return `Error! Potion ${newPotion.name} is already in your inventory!`;
+// //       }
+// //     }
+// //     this.potions.push(newPotion);
+// //   },
+// //   // Метод для видалення зілля
+// //   removePotion(potionName) {
+// //     const potionIndex = this.potions.findIndex(potion => potion.name === potionName);
+// //     if (potionIndex === -1) {
+// //       return `Potion ${potionName} is not in inventory!`;
+// //     }
+// //     this.potions.splice(potionIndex, 1);
+// //   },
+// //   // Метод для оновлення назви зілля
+// //   updatePotionName(oldName, newName) {
+// //     const potion = this.potions.find(potion => potion.name === oldName);
+// //     if (!potion) {
+// //       return `Potion ${oldName} is not in inventory!`;
+// //     }
+// //     potion.name = newName;
+// //   },
+// // };
+// console.log(atTheOldToad.getPotions());
+// // [{ name: "Speed potion", price: 460 }, 
+// //  { name: "Dragon breath", price: 780 }, 
+// //  { name: "Stone skin", price: 520 }]
+// atTheOldToad.addPotion({ name: "Invisibility", price: 620 });
+// console.log(atTheOldToad.getPotions());
+// // [{ name: "Speed potion", price: 460 }, 
+// // { name: "Dragon breath", price: 780 }, 
+// // { name: "Stone skin", price: 520 }, 
+// // { name: "Invisibility", price: 620 }]
+// console.log(atTheOldToad.addPotion({ name: "Speed potion", price: 460 }));
+// // "Error! Potion Speed potion is already in your inventory!"
+// atTheOldToad.removePotion("Dragon breath");
+// console.log(atTheOldToad.getPotions());
+// // [{ name: "Speed potion", price: 460 }, 
+// // { name: "Stone skin", price: 520 }, 
+// // { name: "Invisibility", price: 620 }]
+// console.log(atTheOldToad.removePotion("Healing potion"));
+// // "Potion Healing potion is not in inventory!"
+// atTheOldToad.updatePotionName("Stone skin", "Earth shield");
+// console.log(atTheOldToad.getPotions());
+// // [{ name: "Speed potion", price: 460 }, 
+// // { name: "Earth shield", price: 520 }, 
+// // { name: "Invisibility", price: 620 }]
+// console.log(atTheOldToad.updatePotionName("Dragon breath", "Fire breath"));
+// // "Potion Dragon breath is not in inventory!"
+
+
+
+
+
 // 🌻Модуль 3 (Урок 2). Операції rest та spread.
+
+// function makeTask(data) {
+//   const { text } = data;
+//   const dataNew = {
+//     completed: false,
+//     category: "General",
+//     priority: "Normal",
+//   }
+//   const completed = false;
+//   const category = "General";
+//   const priority = "Normal";
+//   return { ...dataNew, ...data };
+// }
+// console.log(makeTask({})); // { category: "General", priority: "Normal", completed: false }
+// console.log(makeTask({ category: "Homemade", priority: "Low", text: "Take out the trash" })); // { category: "Homemade", priority: "Low", text: "Take out the trash", completed: false }
+
+// function add(...args) {
+//   let sum = 0; 
+//   for (const arg of args) {
+//     sum += arg;
+//   }
+//   return sum;
+// }
+// console.log(add(15, 27)); // 42
+// console.log(add(12, 4, 11, 48)); // 75
+
+// function addOverNum(...args) {
+//   let total = 0;
+//   for (let i = 0; i < args.length; i++) { 
+//     if (args[i] > args[0]) {
+//        total += args[i];
+//     }
+//   }
+//   return total;
+// }
+// console.log(addOverNum(50, 15, 27)); // 0
+// console.log(addOverNum(10, 12, 4, 11, 48, 10, 8)); // 71
+
+// function findMatches(first, ...args) {
+//   const matches = []; 
+//   for (let i = 0; i < first.length; i++) {
+//     if (args.includes(first[i])) {
+//       matches.push(first[i]);
+//     }
+//   }
+//   return matches;
+// }
+// console.log(findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7)); // [1, 2]
+// console.log(findMatches([4, 89, 17, 36, 2], 8, 17, 89, 27, 2)); // [17, 89, 2]
+
+
+
+
+
+
+
+
+
+
+
 
 // const arr = [1, 2, 3];
 // const [a, b, c] = arr; // деструктуризація масиву
@@ -573,18 +1216,18 @@
 
 // const arr = [56, 22, 4, 25, 7];
 // const min = Math.min(...arr); //...spread
-// console.log(min);
+// console.log(min); // 4
 // ----------------------------------------------
-// const arr1 = [...arr]; // робимо копію масива arr 
+// const arr1 = [...arr]; // робимо копію масива arr
 // console.log(arr1);
 // ----------------------------------------------
 // const [first, ...props] = arr; // ...rest
-// console.log(first);
-// console.log(props);
+// console.log(first); // 56
+// console.log(props); // [22, 4, 25, 7]
 // for(i = 0; i < props.length; i += 1) {
 //   props[i] *= first;
 // };
-// console.log(props);
+// console.log(props); // [1232, 224, 1400, 392]
 //--------------------------
 // це дока до функцуії foo()
 /** 
@@ -628,8 +1271,9 @@
 //   email: 'us@gmail.com',
 //   age: 30
 // };
-// const {username = 'User'} = user;
+// const {username = 'User'} = user; // Деструктуризація з установленням значення за замовчуванням не змінює вихідний об'єкт, вона просто створює локальну змінну з відповідним значенням.
 // console.log(username); // User
+// console.log(user.username); // undefined
 
 // const user = {
 //   email: 'us@gmail.com',
@@ -714,6 +1358,58 @@
 // };
 // console.log(each(arr, add));
 // console.log(each(arr, sum));
+
+// const pizzaPalace = {
+//   pizzas: ['Ultracheese', 'Smoked', 'Four meats'],
+//   order(pizzaName, onSuccess, onError) {
+//     const isExists = this.pizzas.includes(pizzaName);
+//     if (isExists) {
+//       return onSuccess(pizzaName);
+//     }
+//     return onError(`There is no pizza with a name ${pizzaName} in the assortment.`);
+//   },
+// };
+// // Callback for onSuccess
+// function makePizza(pizzaName) {
+//   return `Your order is accepted. Cooking pizza ${pizzaName}.`;
+// }
+// // Callback for onError
+// function onOrderError(error) {
+//   return `Error! ${error}`;
+// }
+// console.log(pizzaPalace.order('Smoked', makePizza, onOrderError));
+// console.log(pizzaPalace.order('Big Mike', makePizza, onOrderError));
+
+// function calculateTotalPrice(orderedItems) {
+//   let totalPrice = 0;
+//   orderedItems.forEach(item => {
+//     totalPrice += item;
+//   });
+//   return totalPrice;
+// }
+// console.log(calculateTotalPrice([12, 85, 37, 4])); // 138
+
+// function getCommonElements(firstArray, secondArray) {
+//   const commonElements = [];
+//   firstArray.forEach(item => {
+//     if (secondArray.includes(item)) {
+//       commonElements.push(item);
+//     }
+//   })
+//   return commonElements;
+// }
+// console.log(getCommonElements([1, 2, 3], [2, 4])); // [2]
+
+// function changeEven(numbers, value) {
+//   const newArray = [];
+//   numbers.forEach(item => {
+//     if (item % 2 === 0) {
+//       newArray.push(item += value);
+//     } else { newArray.push(item) }
+//   }) 
+//   return newArray;
+// }
+// console.log(changeEven([1, 2, 3, 4, 5], 10)); // [1, 12, 3, 14, 5]
 
 // forEach
 // const arr = [1, 2, 3, 4, 5];
@@ -810,7 +1506,7 @@
 
 // 🌻Модуль 4 (Урок 2). Перебираючі методи масиву
 
-// map
+// 🔷map
 // const arr = [1, 2, 3, 4, 5];
 // const result = arr.map((item) => item * 2); // .map((item, idx, arr) => {})
 // console.log(result); // [ 2, 4, 6, 8, 10]
@@ -827,7 +1523,11 @@
 // const result = arr.map(item => !(item%2) ? item * 3 : item);
 // console.log(result); // [1, 6, 3, 12, 5]
 
-// flatMap - щоб розгладити масив
+// const planets = ["Earth", "Mars", "Venus", "Jupiter"];
+// const planetsLengths = planets.map(item => item.length);
+// console.log(planetsLengths); // [5, 4, 5, 7]
+
+// 🔷flatMap - щоб розгладити масив
 // const arr = [{
 //   name: 'User1', 
 //   skills: ['html', 'css']
@@ -843,7 +1543,7 @@
 // const result = arr.flatMap(item => item.skills);
 // console.log(result); // ['html', 'css', 'js', 'react', 'node.js', 'express']
 
-// find - дозволяє знайти один конкретний елемент в масиві
+// 🔷find - дозволяє знайти один конкретний елемент в масиві
 // const arr = [1, 2, 3, 4, 5];
 // const result = arr.find(item => item > 3);
 // console.log(result); // 4
@@ -861,7 +1561,7 @@
 // const result = arr.find(item => item.skills.includes('js')).name;
 // console.log(result); // User2
 
-// findIndex
+// 🔷findIndex
 // const arr = [{
 //   name: 'User1', 
 //   skills: ['html', 'css']
@@ -875,22 +1575,121 @@
 // const result = arr.findIndex(item => item.skills.includes('js'));
 // console.log(result); // 1
 
-// filter - знаходить всі елементи, які задовольняють вимогам
+// 🔷filter - знаходить всі елементи, які задовольняють вимогам
 // const arr = [1, 2, 3, 4, 5];
 // const result = arr.filter(item => !(item%2)); // повертає всі парні
 // console.log(result); // [2, 4] 
 
-// every - чи всі елементи відповідають умові
+// const books = [
+//   {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     genres: ["adventure", "history"],
+//   },
+//   {
+//     title: "Beside Still Waters",
+//     author: "Robert Sheckley",
+//     genres: ["fiction", "mysticism"],
+//   },
+//   {
+//     title: "Redder Than Blood",
+//     author: "Tanith Lee",
+//     genres: ["horror", "mysticism", "adventure"],
+//   },
+// ];
+// const allGenres = books.flatMap(book => book.genres);
+// const uniqueGenres = allGenres.filter((item, index, array) => array.indexOf(item) === index);
+// console.log(allGenres);// ['adventure', 'history', 'fiction', 'mysticism', 'horror', 'mysticism', 'adventure']
+// console.log(uniqueGenres);// ['adventure', 'history', 'fiction', 'mysticism', 'horror']
+
+// const users = [
+//   {
+//     name: "Moore Hensley",
+//     email: "moorehensley@indexia.com",
+//     eyeColor: "blue",
+//     friends: ["Sharron Pace"],
+//     isActive: false,
+//     balance: 2811,
+//     gender: "male",
+//     age: 37
+//   },
+//   {
+//     name: "Sharlene Bush",
+//     email: "sharlenebush@tubesys.com",
+//     eyeColor: "blue",
+//     friends: ["Briana Decker", "Sharron Pace"],
+//     isActive: true,
+//     balance: 3821,
+//     gender: "female",
+//     age: 34
+//   },
+//   {
+//     name: "Ross Vazquez",
+//     email: "rossvazquez@xinware.com",
+//     eyeColor: "green",
+//     friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+//     isActive: false,
+//     balance: 3793,
+//     gender: "male",
+//     age: 24
+//   },
+//   {
+//     name: "Elma Head",
+//     email: "elmahead@omatom.com",
+//     eyeColor: "green",
+//     friends: ["Goldie Gentry", "Aisha Tran"],
+//     isActive: true,
+//     balance: 2278,
+//     gender: "female",
+//     age: 21
+//   },
+//   {
+//     name: "Carey Barr",
+//     email: "careybarr@nurali.com",
+//     eyeColor: "blue",
+//     friends: ["Jordan Sampson", "Eddie Strong"],
+//     isActive: true,
+//     balance: 3951,
+//     gender: "male",
+//     age: 27
+//   },
+//   {
+//     name: "Blackburn Dotson",
+//     email: "blackburndotson@furnigeer.com",
+//     eyeColor: "brown",
+//     friends: ["Jacklyn Lucas", "Linda Chapman"],
+//     isActive: false,
+//     balance: 1498,
+//     gender: "male",
+//     age: 38
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     email: "shereeanthony@kog.com",
+//     eyeColor: "brown",
+//     friends: ["Goldie Gentry", "Briana Decker"],
+//     isActive: true,
+//     balance: 2764,
+//     gender: "female",
+//     age: 39
+//   }
+// ]
+// const getUsersWithFriend = (users, friendName) => {
+//   return users.filter(user => user.friends.includes(friendName));
+// };
+// console.log(getUsersWithFriend(users, 'Goldie Gentry'));
+
+// 🔷every - чи всі елементи відповідають умові
 // const arr = [1, 2, 3, 4, 5];
 // const result = arr.every(item => !(item%2)); 
 // console.log(result); // false
 
-// some - хоча б один задовільняє умові
+// 🔷some - хоча б один задовільняє умові
 // const arr = [1, 2, 3, 4, 5];
 // const result = arr.some(item => !(item%2)); 
 // console.log(result); // true
 
-// sort 
+// 🔷sort 
 // const arr = [21, 2, 35, 4, 15];
 // const result = arr.sort((a, b) => a - b); 
 // console.log(result); // [2, 4, 15, 21, 35]
@@ -909,7 +1708,7 @@
 // const result = str.sort((a, b) => a.localeCompare(b));
 // console.log(result); // ['a', 'A', 'b', 'f', 's']
 
-// reduce
+// 🔷reduce
 // const arr = [21, 2, 35, 4, 15];
 // const result = arr.reduce((acc, item) => {
 //   console.log('acc', acc);
@@ -975,19 +1774,160 @@
 // const getModelOnSale = cars => cars.filter(({onSale}) => onSale).map(({make, model}) => `${make} ${model}`);
 // console.log(getModelOnSale(cars));
 
-// таке може бути на співбесіді
+// const books = [
+//   {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     rating: 8.38,
+//   },
+//   {
+//     title: "Beside Still Waters",
+//     author: "Robert Sheckley",
+//     rating: 8.51,
+//   },
+//   {
+//     title: "The Dream of a Ridiculous Man",
+//     author: "Fyodor Dostoevsky",
+//     rating: 7.75,
+//   },
+//   { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+//   {
+//     title: "The Dreams in the Witch House",
+//     author: "Howard Lovecraft",
+//     rating: 8.67,
+//   },
+// ];
+// const MIN_BOOK_RATING = 8;
+// const names = [...books].filter(item => {
+//   if (item.rating > MIN_BOOK_RATING) {
+//     return item.author;
+//   }
+// }).map(item => item.author).sort((a,b) => a.localeCompare(b));
+// console.log(names); //  ['Bernard Cornwell', 'Howard Lovecraft', 'Robert Sheckley']
+
+// const users = [
+//   {
+//     name: "Moore Hensley",
+//     email: "moorehensley@indexia.com",
+//     eyeColor: "blue",
+//     friends: ["Sharron Pace"],
+//     isActive: false,
+//     balance: 2811,
+//     gender: "male"
+//   },
+//   {
+//     name: "Sharlene Bush",
+//     email: "sharlenebush@tubesys.com",
+//     eyeColor: "blue",
+//     friends: ["Briana Decker", "Sharron Pace"],
+//     isActive: true,
+//     balance: 3821,
+//     gender: "female"
+//   },
+//   {
+//     name: "Ross Vazquez",
+//     email: "rossvazquez@xinware.com",
+//     eyeColor: "green",
+//     friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+//     isActive: false,
+//     balance: 3793,
+//     gender: "male"
+//   },
+//   {
+//     name: "Elma Head",
+//     email: "elmahead@omatom.com",
+//     eyeColor: "green",
+//     friends: ["Goldie Gentry", "Aisha Tran"],
+//     isActive: true,
+//     balance: 2278,
+//     gender: "female"
+//   },
+//   {
+//     name: "Carey Barr",
+//     email: "careybarr@nurali.com",
+//     eyeColor: "blue",
+//     friends: ["Jordan Sampson", "Eddie Strong", "Adrian Cross"],
+//     isActive: true,
+//     balance: 3951,
+//     gender: "male"
+//   },
+//   {
+//     name: "Blackburn Dotson",
+//     email: "blackburndotson@furnigeer.com",
+//     eyeColor: "brown",
+//     friends: ["Jacklyn Lucas", "Linda Chapman", "Adrian Cross", "Solomon Fokes"],
+//     isActive: false,
+//     balance: 1498,
+//     gender: "male"
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     email: "shereeanthony@kog.com",
+//     eyeColor: "brown",
+//     friends: ["Goldie Gentry", "Briana Decker"],
+//     isActive: true,
+//     balance: 2764,
+//     gender: "female"
+//   }
+// ];
+// const getNamesSortedByFriendCount = users => {
+//   return [...users].sort((a, b) => a.friends.length - b.friends.length).map(item => item.name);
+// };
+// const getSortedFriends = users => {
+//   return users.flatMap(item => item.friends)
+//     .filter((item, index, array) => array.indexOf(item) === index).sort();
+// };
+// const getTotalBalanceByGender = (users, gender) => {
+//   // return users.reduce((acc, item) => {
+//   //   if (item.gender === gender) {
+//   //     return acc + item.balance;
+//   //   }
+//   //   return acc;
+//   // }, 0)
+//   //---------------------------------------------------------------------------------------------
+//   return users.filter(item => item.gender === gender)
+//     .reduce((acc, item) => acc + item.balance, 0)
+// };
+// console.log(getNamesSortedByFriendCount(users));
+// // ["Moore Hensley", "Sharlene Bush", "Elma Head", "Sheree Anthony", "Ross Vazquez", "Carey Barr", 
+// // "Blackburn Dotson"]
+// console.log(getSortedFriends(users));
+// // ["Adrian Cross", "Aisha Tran", "Briana Decker", "Eddie Strong", "Goldie Gentry", "Jacklyn Lucas", 
+// // "Jordan Sampson", "Linda Chapman", "Marilyn Mcintosh", "Naomi Buckner", "Padilla Garrison", 
+// // "Sharron Pace", "Solomon Fokes"]
+// console.log(getTotalBalanceByGender(users, "male")); // 12053
+// console.log(getTotalBalanceByGender(users, "female")); // 8863
+
+
+// ❗❗❗таке може бути на співбесіді 
 // const str = 'jkfnvtydbvvdfpoimdjkldscvzaa';
 // const result = str.split('').reduce((acc, item) => {
 //   acc.hasOwnProperty(item) ? acc[item] +=1 : acc[item] = 1;
 //   return acc;
 // }, {})
-// console.log(result); // об'єкт в якого літера: кількість літер в рядку (ключ: значення)
+// console.log(result);
+//-------------------------------------------------------------
+// function getLettersCount(input) {
+//   const result = {};
+//   for (const letter of input) {
+//     result[letter] = (result[letter] || 0) + 1;
+//     console.log(result.letter);
+    
+//   }
+//   return result;
+// }
+// console.log(getLettersCount(str)); // об'єкт в якого літера: кількість літер в рядку (ключ: значення)
 
 // function logCars(arr) {
+// //   const result = arr.reduce((acc, item, idx) => {
+// //     return acc + `${idx+1} - ${item}\n`
+// // }, arr.length ?`Загальна кількість авто: ${arr.length}\n` : `Вибачте авто немає 🤷‍♀️`)
+//   // return result
 //   const result = arr.reduce((acc, item, idx) => {
 //     return acc + `${idx+1} - ${item}\n`
-// }, arr.length ?`Загальна кількість авто: ${arr.length}\n` : `Вибачте авто немає 🤷‍♀️`)
-// return result
+
+//   }, arr.length ? `Загальна кількість авто: ${arr.length}\n` : `Вибачте авто немає 🤷‍♀️`)
+//   return result;
 // }
 // console.log(logCars(['Honda', 'Audi', 'BMW', 'Skoda', 'Ford', 'Renault']));
 // console.log(logCars([]));
@@ -997,7 +1937,7 @@
 //   acc[item] = (acc[item] || 0) + 1;
 //   return acc;
 // }, {});
-// console.log(count);
+// console.log(count); {banana: 2, cherry: 1, apple: 2, orange: 2}
 
 
 // 🌞🌞🌞🌞🌞Модуль 5.🌞🌞🌞🌞🌞 
@@ -1045,13 +1985,621 @@
 // const str = objA.myAge.call(objB, ...fromBackEnd);
 // console.log(str);
 
+// const calculator = {
+//   read(a, b) {
+//     this.a = a;
+//     this.b = b;
+//   },
+//   add() {
+//     return (this.a ?? 0) + (this.b ?? 0);
+//   },
+//   mult() {
+//     return (this.a ?? 1) * (this.b ?? 1);
+//   }
+// };
+// calculator.read();
+// console.log(calculator.add());
+// console.log(calculator.mult());
+
+// class Car {
+//   #brand
+//    // Синтаксис оголошення методу класу
+//   constructor( brand, model, price ) {
+//     // Ініціалізація властивостей екземпляра
+//     this.#brand = brand; // #приватна властивість
+//     this.model = model;
+//     this.price = price;
+//   }
+//   getPrice() {
+//   return this.price;
+//   };
+//   changePrice(newPrice) {
+//     return this.price = newPrice;
+//   };
+// };
+// console.log(new Car('Audi', 'Q3', 36000)); // {brand: 'Audi', model: 'Q3', price: 36000 }
+
+// class Storage {
+//   constructor(items) {
+//     this.items = items;
+//   };
+//   getItems() {
+//     return this.items;
+//   };
+//   addItem(newItem) {
+//     return this.items.push(newItem);
+//   };
+//   removeItem(reItem) {
+//     return this.items = this.items.filter(item => item !== reItem);
+//   };
+// };
+// const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
+// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+// console.log(storage.addItem("Droid"));
+// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+// console.log(storage.removeItem("Prolonger"));
+// console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+
+class User {
+  email;
+  constructor(email) {
+    this.email = email;
+  }
+  get emaiil() {
+    return this.email;
+  }
+  set emaiil(newEmail) {
+    this.email = newEmail;
+  }
+}
+class Admin extends User {
+  static AccessLevel = {
+    BASIC: "basic",
+    SUPERUSER: "superuser",
+  };
+  constructor({ email, accessLevel }) {
+    super(email);
+    this.accessLevel = accessLevel;
+  }
+}
+const mango = new Admin({
+  email: "mango@mail.com",
+  accessLevel: Admin.AccessLevel.SUPERUSER,
+});
+console.log(mango.email); // "mango@mail.com"
+console.log(mango.accessLevel); // "superuser"
 
 
 
+//📌📌📌Завдання для тренування
+//1️⃣Фільтрація та перетворення даних
+// const users = [
+//   { name: "Alice", age: 25 },
+//   { name: "Bob", age: 17 },
+//   { name: "Charlie", age: 30 }
+// ];
+// function filterUsers(users, minAge) {
+//   return users.filter(item => item.age >= minAge).map(item => item.name)
+// };
+// console.log(filterUsers(users, 18)); // ["Alice", "Charlie"]
+//----------------------------------------------------------------------------------------------
+//🔹
+// const users = [
+//   { name: "Alice", age: 25 },
+//   { name: "Bob", age: 30 },
+//   { name: "Charlie", age: 25 },
+//   { name: "David", age: 35 }
+// ];
+// function getUniqueAges(users) {
+//   return users.map(item => item.age).filter((item, index, arr) => arr.indexOf(item) === index);
+// }
+// console.log(getUniqueAges(users)); // [25, 30, 35]
+//------------------------------------------------------------------------------------------------
+//🔹
+// const users = [
+//   { name: "Alice", isActive: true },
+//   { name: "Bob", isActive: false },
+//   { name: "Charlie", isActive: true },
+//   { name: "David", isActive: false }
+// ];
+// function getActiveUsers(users) {
+//   return users.filter(item => item.isActive).map(item => item.name);
+// }
+// console.log(getActiveUsers(users)); // ["Alice", "Charlie"]
+//------------------------------------------------------------------------------------------------
+//🔹
+// const products = [
+//   { name: "Laptop", price: 1200 },
+//   { name: "Phone", price: 800 },
+//   { name: "Tablet", price: 400 },
+//   { name: "Smartwatch", price: 250 }
+// ];
+// function filterProducts(products, minPrice, maxPrice) {
+//   return products.filter(item => item.price >= minPrice && item.price <= maxPrice)
+//     .map(item => item.name);
+// }
+// console.log(filterProducts(products, 200, 850)); // ['Phone', 'Tablet', 'Smartwatch']
+//-------------------------------------------------------------------------------------------------
+//🔹
+// const users = ["Alice", "Bob", "Charlie", "David"];
+// function getNameLengths(users) {
+//   return users.map(item => item.length);
+// };
+// console.log(getNameLengths(users)); // [5, 3, 7, 5]
+//-------------------------------------------------------------------------------------------------
+//🔹
+// const books = [
+//   { title: "Dune", genre: "Sci-Fi" },
+//   { title: "1984", genre: "Dystopia" },
+//   { title: "The Hobbit", genre: "Fantasy" },
+//   { title: "Brave New World", genre: "Dystopia" }
+// ];
+// function getBooksByGenre(books, genre) {
+//   return books.filter(item => item.genre === genre).map(item => item.title);
+// };
+// function getUniqueGenres(books) {
+//   return books.map(item => item.genre).filter((item, idx, arr) => arr.indexOf(item) === idx);
+// }
+// console.log(getBooksByGenre(books, "Dystopia")); // ["1984", "Brave New World"]
+// console.log(getUniqueGenres(books)); // ['Sci-Fi', 'Dystopia', 'Fantasy']
+//--------------------------------------------------------------------------------------------------
+//🔹
+// const users = [
+//   { name: "Alice", email: "alice@gmail.com" },
+//   { name: "Bob", email: "bob@yahoo.com" },
+//   { name: "Charlie", email: "charlie@gmail.com" },
+//   { name: "David", email: "david@outlook.com" }
+// ];
+// function getUsersByDomain(users, domain) {
+//   return users.filter(item => item.email.includes(domain)).map(item => item.name);
+// };
+// console.log(getUsersByDomain(users, "gmail.com")); // ["Alice", "Charlie"]
+//--------------------------------------------------------------------------------------------------
+//🔹
+// const products = [
+//   { name: "Laptop", price: 1200 },
+//   { name: "Phone", price: 800 },
+//   { name: "Tablet", price: 400 },
+//   { name: "Smartwatch", price: 250 }
+// ];
+// function getMostExpensiveProduct(products) {
+//   return products.reduce((acc, item) => (item.price > acc.price ? item : acc), products[0]).name;
+// };
+// console.log(getMostExpensiveProduct(products)); // "Laptop"
+//--------------------------------------------------------------------------------------------------
+//🔹
+// const users = ["Alice", "Bob", "Charlie"];
+// function greetUsers(users) {
+//   return users.map(item => `Привіт, ${item}!`)
+// };
+// console.log(greetUsers(users)); // ["Привіт, Alice!", "Привіт, Bob!", "Привіт, Charlie!"]
+//---------------------------------------------------------------------------------------------------
+//🔹
+// const users = [
+//   { name: "Alice", friends: ["Bob", "Charlie", "Alice", "David"] },
+//   { name: "Bob", friends: ["Alice", "Charlie"] },
+//   { name: "Charlie", friends: ["Bob", "David"] },
+//   { name: "David", friends: ["Alice", "Charlie"] }
+// ];
+// function getMostPopularFriend(users) {
+//   // 1 варіант ("Charlie")
+//   // const friendCount = {};
+//   // users.forEach(user => user.friends.forEach(friend => {
+//   //    friendCount[friend] = (friendCount[friend] || 0) + 1;
+//   // }));
+//   // return Object.keys(friendCount).reduce((acc, friend) =>
+//   //   friendCount[friend] > friendCount[acc] ? friend : acc
+//   // );
+//   //----------------------------------------------------------------------------------------
+//   // 2 варіант (['Charlie', 'Alice'])
+//   const friendCount = {};
+//   users.forEach(user => {
+//     user.friends.forEach(friend => {
+//       friendCount[friend] = (friendCount[friend] || 0) + 1;
+//     });
+//   });
+//   const maxCount = Math.max(...Object.values(friendCount));
+//   return Object.keys(friendCount).filter(friend => friendCount[friend] === maxCount);
+//   //------------------------------------------------------------------------------------------
+// 3 варіант (['Charlie', 'Alice'])
+  // const arrFriends = users.flatMap(item => item.friends);
+  // const obj = {};
+  // arrFriends.forEach(item => {
+  //   if (!obj[item]) {
+  //     obj[item] = 1
+  //   } else {obj[item] += 1}
+  // })
+  // const arrVal = Object.values(obj);
+  // const maxNumber = Math.max(...arrVal);
+  // const arr = Object.entries(obj);
+  // return arr.filter(([key, val]) => val === maxNumber ? key : 0).map(item => item[0])
+  //-----------------------------------------------------------------------------------------
+  // 4 варіант (['Charlie', 'Alice'])
+//   const friendCount = {};
+//   users.forEach(item => item.friends.forEach(item => {
+//     friendCount[item] ? friendCount[item] +=1 : friendCount[item] = 1
+//   }))
+//   const maxNumber = Math.max(...Object.values(friendCount));
+//   return Object.keys(friendCount).filter(item => friendCount[item] === maxNumber)
+// };
+// console.log(getMostPopularFriend(users)); // ім'я друга, якого найчастіше згадують у friends
+//----------------------------------------------------------------------------------------------
+// 🔹 потрібно перевірити, чи можна скласти слово word з літер, які є в рядку letters
+// function isPossibleToCompose(word, letters) {
+//   // 1 варіант
+//   // const wordObj = {};
+//   // const lettersObj = {};
+//   // word.split('').forEach(item => {
+//   //   wordObj[item] = (wordObj[item] || 0) + 1
+//   // })
+//   // letters.split('').forEach(item => {
+//   //   lettersObj[item] = (lettersObj[item] || 0) + 1
+//   // })
+//   // for (const key in wordObj) {
+//   //   if (wordObj[key] > (lettersObj[key] || 0)) {
+//   //     return false
+//   //   }
+//   // }
+//   // return true
+//   //--------------------------------------------------
+//   // 2 варіант
+//   const countChars = str => {
+//     return str.split('').reduce((acc, char) => {
+//       acc[char] = (acc[char] || 0) + 1;
+//       return acc;
+//     }, {})
+//   }
+//   const wordObj = countChars(word);
+//   const lettersObj = countChars(letters);
+//   return Object.keys(wordObj).every(char => wordObj[char] <= (lettersObj[char] || 0));
+// }
+// console.log(isPossibleToCompose('aa', 'abc')) // false
+// console.log(isPossibleToCompose('abc', 'dcba')); // true
+// console.log(isPossibleToCompose('aabbcc', 'bcabcaddff')); // true
 
+//2️⃣Обробка асинхронних операцій.
+// Реалізуй функцію fetchData(url), яка використовує fetch для отримання JSON-даних
+// за переданим URL і повертає їх. Використовуй async/await.
+// async function fetchData(url) {
+//   try {
+//     const response = await fetch(url) // Виконуємо HTTP-запит
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! Status: ${response.status}`); // Перевіряємо статус відповіді
+//     }
+//     const data = await response.json(); // Розбираємо JSON-дані
+//     return data
+//   } catch (error) {
+//     console.error("Помилка при отриманні даних:", error);
+//     return null; // Повертаємо null у разі помилки
+//   }
+// }
+// // Приклад використання:
+// fetchData("https://jsonplaceholder.typicode.com/todos/1")
+//   .then(data => console.log(data))
+//   .catch(error => console.error(error));
 
+//3️⃣Напиши рекурсивну функцію sumTo(n), яка повертає суму всіх чисел від 1 до n
+// function sumTo(n) {
+//   if (n === 1) return 1;
+//   return n + sumTo(n - 1);
+// };
+// console.log(sumTo(5)); // 15 (1 + 2 + 3 + 4 + 5)
 
+//4️⃣Асинхронна функція з Promise
+// Напиши функцію delay(ms), яка повертає Promise, що виконується через ms мілісекунд.
+// function delay(ms) {
+//   return new Promise(resolve => {
+//     setTimeout(() => {
+//       resolve()
+//     }, ms)
+//   })
 
+// };
+// delay(2000).then(() => console.log("Прошло 2 секунды"));
+
+//5️⃣Чисті функції та іммутабельність
+// 🔹Напиши функцію updateUserEmail(users, name, newEmail), яка не мутує вихідний масив,
+// а повертає новий масив користувачів з оновленою електронною поштою для вказаного name.
+// function updateUserEmail(users, name, newEmail) {
+//   // мутує вихідний масив
+//   // const user = users.find(item => item.name === name);
+//   // if (user) {
+//   //   user.email = newEmail;
+//   //   return user;
+//   // }
+//   // return null
+//   //--------------------------------------------------------------------------------------
+//   // не мутує вихідний масив
+//   return users.map(user =>
+//     user.name === name
+//       ? { ...user, email: newEmail } // Створюємо новий об'єкт із оновленою email
+//       : user // Інші об'єкти залишаються без змін
+//   );
+// }
+// const users = [
+//   { name: "Alice", email: "alice@example.com" },
+//   { name: "Bob", email: "bob@example.com" }
+// ];
+// console.log(updateUserEmail(users, "Alice", "alice@new.com"));
+// console.log(users);
+//-------------------------------------------------------------------------------------------
+//🔹
+// const users = [
+//   { name: "Alice", status: "active" },
+//   { name: "Bob", status: "inactive" }
+// ];
+// function updateUserStatus(users, name, newStatus) {
+//   return users.map(user => user.name === name ? { ...user, status: newStatus } : user)
+// };
+// const updatedUsers = updateUserStatus(users, "Bob", "active");
+// console.log(updatedUsers);
+//-------------------------------------------------------------------------------------------
+// 🔹Видалення користувача (Іммутабельна версія)
+// const users = [
+//   { name: "Alice", email: "alice@example.com" },
+//   { name: "Bob", email: "bob@example.com" }
+// ];
+// function deleteUser(users, name) {
+//   return users.filter(user => user.name !== name);
+// };
+// const newUsers = deleteUser(users, "Alice");
+// console.log(newUsers); // [{ name: "Bob", email: "bob@example.com" }]
+// console.log(users); // Початковий масив не змінюється
+//--------------------------------------------------------------------------------------------
+// 🔹Підрахунок активних користувачів (Чиста функція)
+// const users = [
+//   { name: "Alice", status: "active" },
+//   { name: "Bob", status: "inactive" },
+//   { name: "Charlie", status: "active" }
+// ];
+// function countActiveUsers(users) {
+//   return users.reduce((acc, user) => {
+//     return user.status === "active" ? acc + 1 : acc
+//   }, 0);
+// }
+// console.log(countActiveUsers(users)); // 2
+//-------------------------------------------------------------------------------------------
+// 🔹Додавання нового користувача (Іммутабельна версія)
+// const users = [
+//   { name: "Alice", email: "alice@example.com" }
+// ];
+// function addUser(users, newUser) {
+//   const userExists = users.some(user => user.name === newUser.name);
+//   return userExists ? [...users] : [...users, newUser];
+// }
+// const updatedUsers = addUser(users, { name: "Bob", email: "bob@example.com" });
+// console.log(updatedUsers);
+// // [
+// //   { name: "Alice", email: "alice@example.com" },
+// //   { name: "Bob", email: "bob@example.com" }
+// // ]
+// console.log(users); // Початковий масив не змінюється
+//-------------------------------------------------------------------------------
+// 🔹Оновлення кількості товару (Іммутабельна версія)
+// const products = [
+//   { id: 1, name: "Laptop", quantity: 5 },
+//   { id: 2, name: "Phone", quantity: 10 }
+// ];
+// function updateProductQuantity(products, id, newQuantity) {
+//   return products.map(item => item.id === id ? { ...item, quantity: newQuantity } : item);
+// }
+// const updatedProducts = updateProductQuantity(products, 1, 8);
+// console.log(updatedProducts);
+// // [
+// //   { id: 1, name: "Laptop", quantity: 8 },
+// //   { id: 2, name: "Phone", quantity: 10 }
+// // ]
+// console.log(products); // Початковий масив не змінюється
+
+//6️⃣Маніпуляція з об'єктами
+// Напиши функцію groupByAge(users), яка згрупує масив користувачів за віком у вигляді об'єкта.
+// const users = [
+//   { name: "Alice", age: 25 },
+//   { name: "Bob", age: 30 },
+//   { name: "Charlie", age: 25 }
+// ];
+// function groupByAge(users) {
+//   return users.reduce((acc, user) => {
+//     const age = user.age;
+//     if (!acc[age]) {
+//       acc[age] = [];
+//     }
+//     acc[age].push(user)
+//     return acc;
+//   }, {})
+// };
+// console.log(groupByAge(users));
+// // Вихідний об'єкт:
+// // {
+// //   25: [{ name: "Alice", age: 25 }, { name: "Charlie", age: 25 }],
+// //   30: [{ name: "Bob", age: 30 }]
+// // }
+//------------------------------------------------------------------------------------------
+//🔹
+// const users = [
+//   { name: "Alice", status: "active" },
+//   { name: "Bob", status: "inactive" },
+//   { name: "Charlie", status: "active" },
+//   { name: "David", status: "pending" }
+// ];
+// function countByStatus(users) {
+//   // // 1 варіант
+//   // return users.reduce((acc, user) => {
+//   //   const status = user.status;
+//   //   if (!acc[status]) {
+//   //     acc[status] = 1
+//   //   } else {acc[status] += 1}
+//   //   return acc;
+//   // }, {})
+//   // 2 варіант
+//   // return users.reduce((acc, { status }) => {
+//   //   acc[status] = (acc[status] || 0) + 1;
+//   //   return acc;
+//   // }, {});
+// }
+// console.log(countByStatus(users)); // { active: 2, inactive: 1, pending: 1 }
+//------------------------------------------------------------------------------------------
+// 🔹Об'єднання масиву об'єктів за ключем
+// Напиши функцію mergeById(arr1, arr2), яка об'єднує два масиви об'єктів за однаковим id.Якщо
+// об'єкт з однаковим id є в обох масивах, об'єднай їхні властивості.
+// const arr1 = [
+//   { id: 1, name: "Alice" },
+//   { id: 2, name: "Bob" }
+// ];
+// const arr2 = [
+//   { id: 1, age: 25 },
+//   { id: 3, name: "Charlie", age: 30 }
+// ];
+// function mergeById(arr1, arr2) {
+//   const mergedMap = {};
+//   [...arr1, ...arr2].forEach(item => {
+//     if (mergedMap[item.id]) {
+//       mergedMap[item.id] = {...mergedMap[item.id], ...item}
+//     } else {mergedMap[item.id] = {...item}}
+//   })
+//   return mergedMap;
+// }
+// console.log(mergeById(arr1, arr2));
+// [
+//   { id: 1, name: "Alice", age: 25 },
+//   { id: 2, name: "Bob" },
+//   { id: 3, name: "Charlie", age: 30 }
+// ]
+//-----------------------------------------------------------------------------------------
+// 🔹Фільтрація об'єкта за значенням
+// Напиши функцію filterObject(obj, value), яка повертає новий об'єкт тільки з тими
+// властивостями, значення яких дорівнює value.
+// const data = {
+//   a: 1,
+//   b: 2,
+//   c: 1,
+//   d: 3
+// };
+// function filterObject(obj, value) {
+//   return Object.fromEntries(Object.entries(obj).filter(([key, val]) => val === value));
+// }
+// console.log(filterObject(data, 1)); // { a: 1, c: 1 }
+//----------------------------------------------------------------------------------------------
+// 🔹Групування об'єктів за першим символом імені
+// Напиши функцію groupByFirstLetter(users), яка згрупує користувачів за першою літерою їх імені.
+// const users = [
+//   { name: "Alice" },
+//   { name: "Arnold" },
+//   { name: "Bob" },
+//   { name: "Charlie" }
+// ];
+// function groupByFirstLetter(users) {
+//   const obj = {};
+//   users.forEach(item => {
+//     const firstLetter = item.name[0];
+//     if (!obj[firstLetter]) {
+//       obj[firstLetter] = [item]
+//     } else {obj[firstLetter].push(item)}
+//   });
+//   return obj;
+// };
+// console.log(groupByFirstLetter(users));
+// // {
+// //   A: [{ name: "Alice" }, { name: "Arnold" }],
+// //   B: [{ name: "Bob" }],
+// //   C: [{ name: "Charlie" }]
+// // }
+//--------------------------------------------------------------------------------------------------
+//🔹Перетворення масиву об'єктів у об'єкт з ключами
+// Напиши функцію arrayToObject(arr, key), яка перетворює масив об'єктів у об'єкт, де ключами будуть
+// значення, що відповідають переданому параметру key.
+// const users = [
+//   { id: 1, name: "Alice" },
+//   { id: 2, name: "Bob" },
+//   { id: 3, name: "Charlie" }
+// ];
+// function arrayToObject(arr, key) {
+//   return arr.reduce((acc, item) => {
+//     acc[item[key]] = item;
+//     return acc;
+//   }, {})
+// }
+// console.log(arrayToObject(users, 'id'));
+// // {
+// //   1: { id: 1, name: "Alice" },
+// //   2: { id: 2, name: "Bob" },
+// //   3: { id: 3, name: "Charlie" }
+// // }
+
+//7️⃣Обхід вкладених структур
+// Напиши функцію countNestedKeys(obj), яка підраховує кількість ключів у вкладеному об'єкті.
+// const obj = { a: 1, b: { c: 2, d: { e: 3 } } };
+// function countNestedKeys(obj) {
+//   let count = 0;
+//   for (const key in obj) {
+//     count += 1;
+//     if (typeof obj[key] === 'object' && obj[key] !== null) {
+//       count += countNestedKeys(obj[key])
+//     }
+//   }
+//   return count;
+// }
+// console.log(countNestedKeys(obj)); // 5 (a, c, e, d, b)
+// console.log(typeof null); // object
+
+//8️⃣💦Створення простого сервера (якщо дозволено Node.js)
+// Напиши простий HTTP - сервер на http - модулі Node.js,
+// який повертає JSON з повідомленням { message: "Hello, world!" }.
+// const http = require('http'); // Імпорт модуля http
+// const PORT = 3000; // Порт, на якому працюватиме сервер
+// // Створення сервера
+// const server = http.createServer((req, res) => {
+//   res.writeHead(200, { 'Content-Type': 'application/json' }); // Встановлення заголовків
+//   res.end(JSON.stringify({ message: 'Hello, world!' })); // Відправлення JSON-відповіді
+// });
+// // Запуск сервера
+// server.listen(PORT, () => {
+//   console.log(`Сервер працює на http://localhost:${PORT}`);
+// });
+
+//--------------------------------------------------------------------------------------------
+// let a = 5;
+// let b = 7;
+// let c = a+++b;
+// console.log(a, b, c);
+// console.log(true + true);
+// var a = false;
+// if (a == `0`) {
+//     alert(`==`);
+// }
+// if (a === `0`) {
+//     alert(`===`);
+// }
+
+// for (var i = 0; i > -10; i-=3) {
+//   i++;
+//   console.log(i); // 1 -1 -3 -5 -7
+// }
+
+// var i = 0;
+// while (i++ < 5) {alert( i );} // 1 2 3 4 5
+
+// What is output to the console in 2 line?
+// var f = function printLog() {
+// console.log('My function');
+// }
+// f; // nothing
+
+// var a = 1;
+// function foo() {
+//   function innertFoo(b=3) {
+//     let a = 3;
+//     return a + b;
+//   }
+//   return innertFoo(2) + a; // innertFoo(2) повертає 5, і далі 5+1=6
+// }
+// console.log(foo()); // 6
+
+// function sum(a, b){
+//   a + b;
+// }
+// let result = sum(2, 5);
+// console.log(result); // undefined
 
 // 🔥🔥🔥🔥🔥freeCodeCamp🔥🔥🔥🔥🔥
 // Шаблон у межах рядка
@@ -3192,3 +4740,35 @@
   // console.log(isPossibleToCompose('aa', 'abc')) // false
   // isPossibleToCompose('abc', 'dcba') // true
   // isPossibleToCompose('aabbcc', 'bcabcaddff') // true
+  
+  // потрібно перевірити, чи можна скласти слово word з літер, які є в рядку letters
+// function isPossibleToCompose(word, letters) {
+//   const foo = function (str) {
+//     const obj = {};
+//     str.split('').forEach(item => {
+//       return obj[item] ? obj[item] += 1 : obj[item] = 1;
+//     })
+//     return obj;
+//   }
+//   const objW = foo(word);
+//   const objL = foo(letters);
+//   return Object.keys(objW).every(item => objW[item] <= (objL[item] || 0))
+// }
+// console.log(isPossibleToCompose('aa', 'abc')) // false
+// console.log(isPossibleToCompose('abc', 'dcba')); // true
+// console.log(isPossibleToCompose('aabbcc', 'bcabcaddff')); // true
+
+// написати ф-ю для множення, не використовуючи * та Math
+// function multiply(a, b) {
+//   let result = 0;
+//   const isNegative = b < 0; // Визначаємо, чи b від’ємне
+//   b = Math.abs(b); // Беремо модуль b
+//   for (let i = 0; i < b; i++) {
+//     result += a; // Додаємо a до результату b разів
+//   }
+//   return isNegative ? -result : result; // Якщо b було від’ємне, інвертуємо результат
+// }
+// console.log(multiply(3, 4));  // 12
+// console.log(multiply(5, -3)); // -15
+// console.log(multiply(-2, -6)); // 12
+// console.log(multiply(7, 0));  // 0
